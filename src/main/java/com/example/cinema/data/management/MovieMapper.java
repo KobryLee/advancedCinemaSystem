@@ -69,5 +69,5 @@ public interface MovieMapper {
      */
     int updateMovie(MovieForm updateMovieForm);
 
-    int deleteMovie(int id);
+
 }

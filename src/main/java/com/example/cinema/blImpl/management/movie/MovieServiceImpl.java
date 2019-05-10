@@ -10,7 +10,6 @@ import com.example.cinema.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -154,17 +153,6 @@ public class MovieServiceImpl implements MovieService, MovieServiceForBl {
             movieVOList.add(new MovieVO(movie));
         }
         return movieVOList;
-    }
-
-    @Override
-    public ResponseVO deleteMovie(int id) {
-        try {
-           movieMapper.deleteMovie(id);
-           return ResponseVO.buildSuccess("success");
-        }catch(Exception e) {
-            e.printStackTrace();
-            return ResponseVO.buildFailure("Failure");
-        }
     }
 
 }
