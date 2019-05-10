@@ -1,7 +1,6 @@
 package com.example.cinema.blImpl.management.hall;
 
 import com.example.cinema.po.Hall;
-import java.util.List;
 /**
  * @author fjj
  * @date 2019/4/28 12:27 AM

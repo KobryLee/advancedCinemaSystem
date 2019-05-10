@@ -1,21 +1,20 @@
 package com.example.cinema.blImpl.sales;
 
-import com.example.cinema.bl.promotion.CouponService;
+import com.example.cinema.bl.promotion.ActivityService;
 import com.example.cinema.bl.sales.TicketService;
 import com.example.cinema.blImpl.management.hall.HallServiceForBl;
 import com.example.cinema.blImpl.management.schedule.ScheduleServiceForBl;
+import com.example.cinema.blImpl.promotion.CouponServiceForBl;
+import com.example.cinema.data.promotion.ActivityMapper;
 import com.example.cinema.data.promotion.CouponMapper;
 import com.example.cinema.data.sales.TicketMapper;
-import com.example.cinema.po.Coupon;
-import com.example.cinema.po.Hall;
-import com.example.cinema.po.ScheduleItem;
-import com.example.cinema.po.Ticket;
+import com.example.cinema.po.*;
 import com.example.cinema.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,12 +22,7 @@ import java.util.List;
  */
 @Service
 public class TicketServiceImpl implements TicketService {
-    //Ticket是PO 用于数据库和业务逻辑层交互
-    //TicketForm是VO 用于前端和业务逻辑层交互
-    //问题在于怎么把TicketForm转化为Ticket
-    //那我们需要用TicketForm里面的变量 抽出来 当作参数传进去
-    //然后通过ticketMapper得到ticket 的返回值
-    //keyProperty是Java对象的属性名！
+
     @Autowired
     TicketMapper ticketMapper;
     @Autowired
@@ -36,58 +30,89 @@ public class TicketServiceImpl implements TicketService {
     @Autowired
     HallServiceForBl hallService;
     @Autowired
-    CouponMapper couponMapper;
+    CouponServiceForBl couponService;
 
-    /**
-     * 添加电影票
-     * controller lockSear
-     * @param ticketForm
-     * @return
-     */
     @Override
     @Transactional
-    public ResponseVO addTicket(TicketForm ticketForm){
+    public ResponseVO addTicket(TicketForm ticketForm) {
         try{
-            List<Ticket> tickets = new ArrayList<Ticket>();   //应该是实现这个的
-            Ticket ticket = new Ticket();
+            List<Ticket> tickets= new ArrayList<Ticket>();
 
-            int scheduleId = ticketForm.getScheduleId();
-            int userId = ticketForm.getUserId();
-            List<SeatForm> seats = ticketForm.getSeats();
-            for (SeatForm s:seats) {
-
-                int rowIndex = s.getRowIndex();
-                int colIndex = s.getColumnIndex();
+            int userId=ticketForm.getUserId();
+            int scheduleId=ticketForm.getScheduleId();
+            List<SeatForm> seats= ticketForm.getSeats();
+            Ticket ticket= new Ticket();
+            for(SeatForm s: seats){
+                ticket.setUserId(userId) ;
                 ticket.setScheduleId(scheduleId);
-                ticket.setUserId(userId);
-                ticket.setRowIndex(rowIndex);
-                ticket.setColumnIndex(colIndex);
+                ticket.setColumnIndex(s.getColumnIndex());
+                ticket.setRowIndex(s.getRowIndex());
                 ticket.setState(0);
                 tickets.add(ticket);
             }
-            ticketMapper.insertTicket(ticket);
-        }catch (Exception e){
+            ticketMapper.insertTickets(tickets);
+            return ResponseVO.buildSuccess();}
+        catch (Exception e){
             e.printStackTrace();
-            return ResponseVO.buildFailure("失败");
+            return ResponseVO.buildFailure("选座失败！");
         }
-        return ResponseVO.buildSuccess();
 
     }
 
     @Override
     @Transactional
     public ResponseVO completeTicket(List<Integer> id, int couponId) {
+        try{
+            List<Ticket> tickets=new ArrayList<Ticket>();
+            List<TicketVO> ticketVOS=new ArrayList<>();
+            List<Coupon> coupons=new ArrayList<>();
+            Coupon coupon=couponService.getCouponById(couponId);
+            //Activity activity=activityMapper.
+            //activity.setCoupon(coupon);
+            //activity.
+            double sum=0;
+            for(Integer i: id){
+                tickets.add(ticketMapper.selectTicketById(i));
+            }
+            for(Ticket t:tickets){
+                double tempAmount=0;
+                int scheduleId=t.getScheduleId();
+                ScheduleItem schedule=scheduleService.getScheduleItemById(scheduleId);
+                t.setState(1);
+                double fare=schedule.getFare();
 
-        return null;
+                TicketVO ticketVO=new TicketVO();
+                ticketVO.setId(t.getId());
+                ticketVO.setColumnIndex(t.getColumnIndex());
+                ticketVO.setRowIndex(t.getRowIndex());
+                ticketVO.setScheduleId(t.getScheduleId());
+                ticketVO.setState(Integer.toString(t.getState()));
+                ticketVO.setTime(t.getTime());
+                ticketVO.setUserId(t.getUserId());
+                ticketVOS.add(ticketVO);
+
+                if(fare>=coupon.getTargetAmount() && t.getTime().before(coupon.getEndTime()) && t.getTime().after(coupon.getStartTime())){
+                    tempAmount=fare-coupon.getDiscountAmount();
+                }
+                else{
+                    tempAmount=fare;
+                }
+                sum+=tempAmount;
+            }
+            TicketWithCouponVO ticketWithCouponVO=new TicketWithCouponVO();
+            coupons.add(coupon);
+            ticketWithCouponVO.setCoupons(coupons);
+            ticketWithCouponVO.setTicketVOList(ticketVOS);
+            ticketWithCouponVO.setTotal(sum);
+
+            return ResponseVO.buildSuccess(ticketWithCouponVO);
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("完成支付失败");
+        }
     }
 
-
-    /**
-     * 用于查看座位信息
-     * controller getOccupiedSeats
-     * @param scheduleId
-     * @return
-     */
     @Override
     public ResponseVO getBySchedule(int scheduleId) {
         try {
@@ -111,10 +136,10 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public ResponseVO getTicketByUser(int userId) {
         try {
-            return ResponseVO.buildSuccess(ticketMapper.selectTicketByUser(userId));
+            return ResponseVO.buildSuccess(ticketMapper.selectTicketByUser(userId) );
         }catch (Exception e){
             e.printStackTrace();
-            return ResponseVO.buildFailure("失败");
+            return ResponseVO.buildFailure("失败!");
         }
     }
 
@@ -126,15 +151,16 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public ResponseVO cancelTicket(List<Integer> id) {
-        try{
-            for (Integer i: id) {
-                ticketMapper.deleteTicket(i);
+        try {
+            for (int i: id){
+                ticketMapper.updateTicketState(i,2);
             }
             return ResponseVO.buildSuccess();
-        }catch(Exception e){
+        }catch (Exception e){
             e.printStackTrace();
-            return ResponseVO.buildFailure("失败");
+            return ResponseVO.buildFailure("失败!");
         }
+
     }
 
 

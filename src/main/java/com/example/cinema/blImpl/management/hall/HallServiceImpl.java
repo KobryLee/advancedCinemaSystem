@@ -38,6 +38,7 @@ public class HallServiceImpl implements HallService, HallServiceForBl {
             e.printStackTrace();
             return null;
         }
+
     }
 
     private List<HallVO> hallList2HallVOList(List<Hall> hallList){
