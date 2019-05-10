@@ -12,6 +12,7 @@ import com.example.cinema.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -80,7 +81,24 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     @Override
     public ResponseVO getMoviePlacingRateByDate(Date date) {
-        //要求见接口说明
+    	try {
+	    	Date requireDate = date;
+	        if(requireDate == null){
+	            requireDate = new Date();
+	        }
+	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			requireDate = simpleDateFormat.parse(simpleDateFormat.format(requireDate));
+			
+			Date nextDate = getNumDayAfterDate(requireDate, 1);
+			
+			return 
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+            return ResponseVO.buildFailure("失败");
+		}
+
+        
         return null;
     }
 

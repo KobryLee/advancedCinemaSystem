@@ -14,6 +14,7 @@ $(document).ready(function(){
             function (res) {
                 getMovieList();
                 $("#movieModal").modal('hide');
+                alert('上架成功！');
             },
             function (error) {
                 alert(error);
@@ -51,6 +52,7 @@ $(document).ready(function(){
             $('#movie-date-input').parent('.form-group').addClass('has-error');
         }
         if(!data.length) {
+        	isValidate = false;
         	$('#movie-length-input').parent('.form-group').addClass('has-error');
         }
         return isValidate;

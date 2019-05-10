@@ -9,7 +9,7 @@ public interface HallServiceForBl {
     /**
      * 搜索影厅
      * @param id
-     * @return     
+     * @return
      */
     Hall getHallById(int id);
 }

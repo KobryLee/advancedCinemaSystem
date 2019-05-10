@@ -132,6 +132,10 @@ $(document).ready(function() {
             fare: $("#schedule-price-input").val()
         };
         //todo 需要做一下表单验证？
+        if(!validateScheduleForm(form)) {
+        	alert("请将表格填写完整！")
+            return;
+        }
 
         postRequest(
             '/schedule/add',
@@ -149,6 +153,31 @@ $(document).ready(function() {
             }
         );
     });
+    
+    function validateScheduleForm(data) {
+        var isValidate = true;
+        if(!data.hallId) {
+            isValidate = false;
+            $('#schedule-hall-input').parent('.form-group').addClass('has-error');
+        }
+        if(!data.movieId) {
+            isValidate = false;
+            $('#schedule-movie-input').parent('.form-group').addClass('has-error');
+        }
+        if(!data.startTime) {
+            isValidate = false;
+            $('#schedule-start-date-input').parent('.form-group').addClass('has-error');
+        }
+        if(!data.endTime) {
+        	isValidate = false;
+        	$('#schedule-end-date-input').parent('.form-group').addClass('has-error');
+        }
+        if(!data.fare) {
+        	isValidate = false;
+        	$('#schedule-price-input').parent('.form-group').addClass('has-error');
+        }
+        return isValidate;
+    }
 
     $('#schedule-edit-form-btn').click(function () {
         var form = {
@@ -160,6 +189,10 @@ $(document).ready(function() {
             fare: $("#schedule-edit-price-input").val()
         };
         //todo 需要做一下表单验证？
+        if(!validateScheduleEditForm(form)) {
+        	alert("请将表格填写完整！")
+            return;
+        }
 
         postRequest(
             '/schedule/update',
@@ -177,9 +210,34 @@ $(document).ready(function() {
             }
         );
     });
+    
+    function validateScheduleEditForm(data) {
+        var isValidate = true;
+        if(!data.hallId) {
+            isValidate = false;
+            $('#schedule-edit-hall-input').parent('.form-group').addClass('has-error');
+        }
+        if(!data.movieId) {
+            isValidate = false;
+            $('#schedule-edit-movie-input').parent('.form-group').addClass('has-error');
+        }
+        if(!data.startTime) {
+            isValidate = false;
+            $('#schedule-edit-start-date-input').parent('.form-group').addClass('has-error');
+        }
+        if(!data.endTime) {
+        	isValidate = false;
+        	$('#schedule-edit-end-date-input').parent('.form-group').addClass('has-error');
+        }
+        if(!data.fare) {
+        	isValidate = false;
+        	$('#schedule-edit-price-input').parent('.form-group').addClass('has-error');
+        }
+        return isValidate;
+    }
 
     $("#schedule-edit-remove-btn").click(function () {
-        var r=confirm("确认要删除该排片信息吗")
+        var r = confirm("确认要删除该排片信息吗");
         if (r) {
             deleteRequest(
                 '/schedule/delete/batch',

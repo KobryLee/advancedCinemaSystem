@@ -54,6 +54,7 @@ $(document).ready(function(){
             '/movie/'+movieId + '/' + userId,
             function(res){
                 var data = res.content;
+                isOn = (data.status == 0);
                 isLike = data.islike;
                 repaintMovieDetail(data);
             },
@@ -146,7 +147,6 @@ $(document).ready(function(){
             startDate: $('#movie-date-input').val(),
             length: $('#movie-length-input').val(),
             description: $('#movie-description-input').val(),
-            stauts: 0
         };
     }
 
@@ -165,6 +165,7 @@ $(document).ready(function(){
             $('#movie-date-input').parent('.form-group').addClass('has-error');
         }
         if(!data.length) {
+        	isValidate = false;
         	$('#movie-length-input').parent('.form-group').addClass('has-error');
         }
         return isValidate;
@@ -177,7 +178,7 @@ $(document).ready(function(){
 			url,
 			formData,
 			function (res) {
-				$("#confirmModal").modal('hide');
+				$("#deleteModal").modal('hide');
 				$("#delete-btn").attr('disabled', 'disabled');
 				$("#delete-btn").html('已下架');
 				alert('下架成功!');
