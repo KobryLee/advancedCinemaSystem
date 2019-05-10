@@ -26,6 +26,7 @@ public class TicketController {
     public ResponseVO lockSeat(@RequestBody TicketForm ticketForm){
         return ticketService.addTicket(ticketForm);
     }
+
     @PostMapping("/buy")
     public ResponseVO buyTicket(@RequestParam List<Integer> ticketId,@RequestParam int couponId){
         return ticketService.completeTicket(ticketId,couponId);
