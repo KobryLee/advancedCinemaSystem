@@ -1,8 +1,6 @@
 package com.example.cinema.data.statistics;
 
-import com.example.cinema.po.AudiencePrice;
-import com.example.cinema.po.MovieScheduleTime;
-import com.example.cinema.po.MovieTotalBoxOffice;
+import com.example.cinema.po.*;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -35,4 +33,24 @@ public interface StatisticsMapper {
      * @return
      */
     List<AudiencePrice> selectAudiencePrice(@Param("date") Date date, @Param("nextDate") Date nextDate);
+
+    /**
+     * 查询某天排片的观众人次
+     * @param date
+     * @return
+     */
+    List<ScheduleAudience> selectScheduleAudience(@Param("date") Date date);
+
+    /**
+     * 查询days天内最
+     * @param days
+     * @return
+     */
+    List<PopularMovie> selectPopularMovies(@Param("lastDate") Date lastDate, @Param("nowDate") Date nowDate);
+
+    /**
+     * 查询所有影厅
+     * @return
+     */
+    List<Hall> selectAllHall();
 }
