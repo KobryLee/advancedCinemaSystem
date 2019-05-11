@@ -2,11 +2,7 @@ package com.example.cinema.blImpl.statistics;
 
 import com.example.cinema.bl.statistics.StatisticsService;
 import com.example.cinema.data.statistics.StatisticsMapper;
-import com.example.cinema.po.AudiencePrice;
-import com.example.cinema.po.Hall;
-import com.example.cinema.po.MovieScheduleTime;
-import com.example.cinema.po.MovieTotalBoxOffice;
-import com.example.cinema.po.ScheduleAudience;
+import com.example.cinema.po.*;
 import com.example.cinema.vo.AudiencePriceVO;
 import com.example.cinema.vo.MoviePlacingRateVO;
 import com.example.cinema.vo.MovieScheduleTimeVO;
@@ -14,6 +10,14 @@ import com.example.cinema.vo.MovieTotalBoxOfficeVO;
 import com.example.cinema.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
