@@ -41,12 +41,7 @@ public interface StatisticsMapper {
      */
     List<ScheduleAudience> selectScheduleAudience(@Param("date") Date date);
 
-    /**
-     * 查询两个日期内最受欢迎的电影
-     * @param lastDate
-     * @param nowDate
-     * @return
-     */
+    String selectMovieName(Integer movieId);
 
     /**
      * 查询所有影厅
@@ -54,5 +49,11 @@ public interface StatisticsMapper {
      */
     List<Hall> selectAllHall();
 
-    String selectMovieName(Integer movieId);
+	/**
+	 * 查询给定日期后电影的总票房（降序排列）
+	 * @param startDate
+	 * @return
+	 */
+	List<MovieTotalBoxOffice> selectRecentMovieBoxOffice(@Param("date") Date startDate);
+	
 }

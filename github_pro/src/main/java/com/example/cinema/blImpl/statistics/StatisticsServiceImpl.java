@@ -11,15 +11,6 @@ import com.example.cinema.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-
-
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -89,16 +80,20 @@ public class StatisticsServiceImpl implements StatisticsService {
 	
     @Override
     public ResponseVO getMoviePlacingRateByDate(Date date) {
-        try{List<MoviePlacingRateVO> moviePlacingRateVOList = new ArrayList<MoviePlacingRateVO>();
-        MoviePlacingRate po = new MoviePlacingRate();
-        po.setMovieName("夏目友人帐");
-        po.setMoviePlacingRate("20.05%");
-        moviePlacingRateVOList.add(new MoviePlacingRateVO(po));
-        po.setMovieName("惊奇队长");
-        po.setMoviePlacingRate("30.96%");
-        moviePlacingRateVOList.add(new MoviePlacingRateVO(po));
-        return ResponseVO.buildSuccess(moviePlacingRateVOList);
-        }catch(Exception e){
+        try {
+        	List<MoviePlacingRateVO> moviePlacingRateVOList = new ArrayList<MoviePlacingRateVO>();
+        	MoviePlacingRate po = new MoviePlacingRate();
+        	po.setMovieName("夏目友人帐");
+        	po.setMoviePlacingRate(20.05);
+        	moviePlacingRateVOList.add(new MoviePlacingRateVO(po));
+        	
+	        po.setMovieName("惊奇队长");
+	        po.setMoviePlacingRate(30.96);
+	        moviePlacingRateVOList.add(new MoviePlacingRateVO(po));
+	        
+	        return ResponseVO.buildSuccess(moviePlacingRateVOList);
+        } 
+        catch (Exception e) {
             e.printStackTrace();
             return ResponseVO.buildFailure("得到上座率失败");
         }
@@ -106,8 +101,18 @@ public class StatisticsServiceImpl implements StatisticsService {
 
     @Override
     public ResponseVO getPopularMovies(int days, int movieNum) {
-        //要求见接口说明
-    	return null;
+    	 //要求见接口说明
+    	try {
+    		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date today = simpleDateFormat.parse(simpleDateFormat.format(new Date()));
+            Date startDate = getNumDayAfterDate(today, -days);
+            
+            return ResponseVO.buildSuccess(movieBoxTotalOfficeList2MovieBoxOfficeVOArray(statisticsMapper.selectRecentMovieBoxOffice(startDate), movieNum)); 
+    	}
+    	catch (Exception e) {
+    		e.printStackTrace();
+            return ResponseVO.buildFailure("失败");
+    	}
     }
 
     

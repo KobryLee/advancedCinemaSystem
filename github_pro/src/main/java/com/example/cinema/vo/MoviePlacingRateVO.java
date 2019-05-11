@@ -17,10 +17,10 @@ public class MoviePlacingRateVO {
     /**
      * 上座率
      */
-    private String moviePlacingRate;
+    private Double moviePlacingRate;
 
 	
-    public MoviePlacingRateVO(String moviePlacingRate) {
+    public MoviePlacingRateVO(Double moviePlacingRate) {
         this.moviePlacingRate = moviePlacingRate;
     }
     public MoviePlacingRateVO(MoviePlacingRate moviePlacingRate) {
@@ -28,12 +28,21 @@ public class MoviePlacingRateVO {
         this.movieName = moviePlacingRate.getMovieName();
     }
 	
-    public String getMoviePlacingRate() {
+    public String getMovieName() {
+		return movieName;
+	}
+    
+	public void setMovieName(String movieName) {
+		this.movieName = movieName;
+	}
+	
+    public Double getMoviePlacingRate() {
         return moviePlacingRate;
     }
 
-    public void setMoviePlacingRate(String moviePlacingRate) {
+    public void setMoviePlacingRate(Double moviePlacingRate) {
         this.moviePlacingRate = moviePlacingRate;
     }
+	
 }
 

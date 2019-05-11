@@ -176,7 +176,7 @@ $(document).ready(function() {
 			function (res) {
 			    var data = res.content || [];
 			    var tableData = data.map(function (item) {
-			        return item.placingRate;
+			        return item.moviePlacingRate;
 			    });
 			    var nameList = data.map(function (item) {
 			        return item.movieName;
@@ -195,7 +195,7 @@ $(document).ready(function() {
 			        },
 			        series: [{
 			            data: tableData,
-			            type: 'line'
+			            type: 'bar'
 			        }]
 			    };
 			    var scheduleRateChart = echarts.init($("#place-rate-container")[0]);

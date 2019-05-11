@@ -1,15 +1,16 @@
 package com.example.cinema.po;
 
 public class MoviePlacingRate {
+	
     private String movieName;
-    private String moviePlacingRate;
+    private Double moviePlacingRate;
 
-    public String getMoviePlacingRate() {
+    public Double getMoviePlacingRate() {
         return moviePlacingRate;
     }
 
-    public void setMoviePlacingRate(String moviePlacingRate) {
-        this.moviePlacingRate = moviePlacingRate;
+    public void setMoviePlacingRate(Double d) {
+        this.moviePlacingRate = d;
     }
 
     public String getMovieName() {
