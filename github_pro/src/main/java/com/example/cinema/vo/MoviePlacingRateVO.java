@@ -1,5 +1,7 @@
 package com.example.cinema.vo;
 
+import com.example.cinema.po.MoviePlacingRate;
+
 /**
  * 上座率
  * @author zbc
@@ -35,13 +37,3 @@ public class MoviePlacingRateVO {
     }
 }
 
-public class MoviePlacingRateVO {
-
-    public String getMoviePlacingRate() {
-        return moviePlacingRate;
-    }
-
-    public void setMoviePlacingRate(String moviePlacingRate) {
-        this.moviePlacingRate = moviePlacingRate;
-    }
-}
