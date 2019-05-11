@@ -47,7 +47,6 @@ public interface StatisticsMapper {
      * @param nowDate
      * @return
      */
-    List<PopularMovie> selectPopularMovies(@Param("lastDate") Date lastDate, @Param("nowDate") Date nowDate);
 
     /**
      * 查询所有影厅
