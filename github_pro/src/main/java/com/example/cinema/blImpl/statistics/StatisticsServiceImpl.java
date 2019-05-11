@@ -83,52 +83,6 @@ public class StatisticsServiceImpl implements StatisticsService {
         }
     }
 	
-	private ResponseVO branch(Date date){
-        //要求见接口说明
-        try{
-            //统计座位数
-            List<Hall> statisticsHall = statisticsMapper.selectAllHall();
-            int totalSeat = 0;
-            for (Hall h: statisticsHall
-                    ) {
-                int row = h.getRow();
-                int col = h.getColumn();
-                totalSeat += row*col;
-            }
-
-            //统计观众人次    只有已支付的人才会被统计
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            date = simpleDateFormat.parse(simpleDateFormat.format(date));
-            List<ScheduleAudience> scheduleAudiences = statisticsMapper.selectScheduleAudience(date);
-            int totalAudience = 0;
-            for(ScheduleAudience s: scheduleAudiences){
-                totalAudience += s.getAudience();
-            }
-
-            //计算与转换
-            List<MoviePlacingRateVO> moviePlacingRateVOList = new ArrayList<MoviePlacingRateVO>();
-            MoviePlacingRate po = new MoviePlacingRate();
-            for (ScheduleAudience scheduleAudience: scheduleAudiences
-                    ) {
-                String movieName = statisticsMapper.selectMovieName(scheduleAudience.getMovieId());
-                po.setMovieName(movieName);
-
-                double
-                po.setMoviePlacingRate();
-            }
-            double placingRate = scheduleAudiences.size()/totalAudience/totalSeat/statisticsHall.size();
-            DecimalFormat df = new DecimalFormat("0.00%");
-            String str_moviePlacingRate = df.format(placingRate);
-
-            MoviePlacingRate moviePlacingRate = new MoviePlacingRate();
-            moviePlacingRate.setMoviePlacingRate(str_moviePlacingRate);
-            MoviePlacingRateVO moviePlacingRateVO = new MoviePlacingRateVO(moviePlacingRate);
-            return ResponseVO.buildSuccess(moviePlacingRateVO);
-        }catch(Exception e){
-            e.printStackTrace();
-            return ResponseVO.buildFailure("失败");
-        }
-    }
     @Override
     public ResponseVO getMoviePlacingRateByDate(Date date) {
         try{List<MoviePlacingRateVO> moviePlacingRateVOList = new ArrayList<MoviePlacingRateVO>();
@@ -149,17 +103,7 @@ public class StatisticsServiceImpl implements StatisticsService {
     @Override
     public ResponseVO getPopularMovies(int days, int movieNum) {
         //要求见接口说明
-    	try {
-    		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            Date today = simpleDateFormat.parse(simpleDateFormat.format(new Date()));
-            Date startDate = getNumDayAfterDate(today, -days);
-            
-            return ResponseVO.buildSuccess(movieBoxTotalOfficeList2MovieBoxOfficeVOArray(statisticsMapper.selectRecentMovieBoxOffice(startDate), movieNum)); 
-    	}
-    	catch (Exception e) {
-    		e.printStackTrace();
-            return ResponseVO.buildFailure("失败");
-    	}
+    	return null;
     }
 
     
