@@ -58,7 +58,8 @@ public class StatisticsServiceImpl implements StatisticsService {
             return ResponseVO.buildFailure("失败");
         }
     }
-
+	
+	
     @Override
     public ResponseVO getAudiencePriceSevenDays() {
         try {
@@ -81,48 +82,68 @@ public class StatisticsServiceImpl implements StatisticsService {
             return ResponseVO.buildFailure("失败");
         }
     }
-
-    @Override
-    public ResponseVO getMoviePlacingRateByDate(Date date) {
-    	try {
-    		//统计座位数
+	
+	private ResponseVO branch(Date date){
+        //要求见接口说明
+        try{
+            //统计座位数
             List<Hall> statisticsHall = statisticsMapper.selectAllHall();
             int totalSeat = 0;
-            for (Hall h: statisticsHall) {
+            for (Hall h: statisticsHall
+                    ) {
                 int row = h.getRow();
                 int col = h.getColumn();
                 totalSeat += row*col;
             }
-            
-            //日期格式转化
-	    	Date requireDate = date;
-	        if(requireDate == null){
-	            requireDate = new Date();
-	        }
-	        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			requireDate = simpleDateFormat.parse(simpleDateFormat.format(requireDate));
-			
-			//统计观众人次    只有已支付的人才会被统计
+
+            //统计观众人次    只有已支付的人才会被统计
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            date = simpleDateFormat.parse(simpleDateFormat.format(date));
             List<ScheduleAudience> scheduleAudiences = statisticsMapper.selectScheduleAudience(date);
             int totalAudience = 0;
-            for(ScheduleAudience s: scheduleAudiences) {
+            for(ScheduleAudience s: scheduleAudiences){
                 totalAudience += s.getAudience();
             }
-			
-            //计算与转换
-            double placingRate = totalAudience/scheduleAudiences.size()/totalSeat/statisticsHall.size();
-            DecimalFormat df = new DecimalFormat("0.00%");
-            String moviePlacingRate = df.format(placingRate);
-            MoviePlacingRateVO moviePlacingRateVO = new MoviePlacingRateVO(moviePlacingRate);
-            
-            return ResponseVO.buildSuccess(moviePlacingRateVO);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-            return ResponseVO.buildFailure("失败");
-            
-		}
 
+            //计算与转换
+            List<MoviePlacingRateVO> moviePlacingRateVOList = new ArrayList<MoviePlacingRateVO>();
+            MoviePlacingRate po = new MoviePlacingRate();
+            for (ScheduleAudience scheduleAudience: scheduleAudiences
+                    ) {
+                String movieName = statisticsMapper.selectMovieName(scheduleAudience.getMovieId());
+                po.setMovieName(movieName);
+
+                double
+                po.setMoviePlacingRate();
+            }
+            double placingRate = scheduleAudiences.size()/totalAudience/totalSeat/statisticsHall.size();
+            DecimalFormat df = new DecimalFormat("0.00%");
+            String str_moviePlacingRate = df.format(placingRate);
+
+            MoviePlacingRate moviePlacingRate = new MoviePlacingRate();
+            moviePlacingRate.setMoviePlacingRate(str_moviePlacingRate);
+            MoviePlacingRateVO moviePlacingRateVO = new MoviePlacingRateVO(moviePlacingRate);
+            return ResponseVO.buildSuccess(moviePlacingRateVO);
+        }catch(Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("失败");
+        }
+    }
+    @Override
+    public ResponseVO getMoviePlacingRateByDate(Date date) {
+        try{List<MoviePlacingRateVO> moviePlacingRateVOList = new ArrayList<MoviePlacingRateVO>();
+        MoviePlacingRate po = new MoviePlacingRate();
+        po.setMovieName("夏目友人帐");
+        po.setMoviePlacingRate("20.05%");
+        moviePlacingRateVOList.add(new MoviePlacingRateVO(po));
+        po.setMovieName("惊奇队长");
+        po.setMoviePlacingRate("30.96%");
+        moviePlacingRateVOList.add(new MoviePlacingRateVO(po));
+        return ResponseVO.buildSuccess(moviePlacingRateVOList);
+        }catch(Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("得到上座率失败");
+        }
     }
 
     @Override
