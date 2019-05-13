@@ -25,11 +25,14 @@
         on schedule.id = schedule_id group by user_id
     </select>
     
-    <select id=" selectScheduleAudience" resultType="com.example.cinema.po.ScheduleAudience">
-        select id as scheduleId,  audience from schedule right join
-			(select schedule_id as scheduleId, count(*) as audience from ticket where state = 1 group by scheduleId) t
-        on schedule.id = t.scheduleId
-        where to_days(schedule.start_time) = to_days{#date}
+    <select id="selectMoviePlacingAudience" resultType="com.example.cinema.po.MoviePlacingAudience">
+    select movie.name as movieName, sum(audience) as audience, count(movie.name)as times from movie
+    right join
+        (select  schedule_id as scheduleId, count(*) as audience, movieId from ticket
+        right join
+        (select id ,movie_id as movieId from schedule where to_days(schedule.start_time) = to_days(#{date}))s on ticket.schedule_id = s.id
+        where state = 1 group by scheduleId) t
+    on movie.id = t.movieId group by movie.id
     </select>
 
     <select id="selectAllHall" resultType="com.example.cinema.po.Hall">
