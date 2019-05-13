@@ -39,15 +39,7 @@ public interface StatisticsMapper {
      * @param date
      * @return
      */
-    List<ScheduleAudience> selectScheduleAudience(@Param("date") Date date);
-
-    String selectMovieName(Integer movieId);
-
-    /**
-     * 查询所有影厅
-     * @return
-     */
-    List<Hall> selectAllHall();
+    List<MoviePlacingAudience> selectMoviePlacingAudience(@Param("date") Date date);
 
 	/**
 	 * 查询给定日期后电影的总票房（降序排列）
@@ -55,5 +47,6 @@ public interface StatisticsMapper {
 	 * @return
 	 */
 	List<MovieTotalBoxOffice> selectRecentMovieBoxOffice(@Param("date") Date startDate);
-	
+
+	List<Hall> selectAllHall();
 }
