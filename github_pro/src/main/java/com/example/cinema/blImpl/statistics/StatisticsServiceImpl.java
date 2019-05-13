@@ -8,6 +8,7 @@ import com.example.cinema.vo.MoviePlacingRateVO;
 import com.example.cinema.vo.MovieScheduleTimeVO;
 import com.example.cinema.vo.MovieTotalBoxOfficeVO;
 import com.example.cinema.vo.ResponseVO;
+import com.sun.javafx.scene.control.skin.VirtualFlow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,20 +78,41 @@ public class StatisticsServiceImpl implements StatisticsService {
             return ResponseVO.buildFailure("失败");
         }
     }
-	
+
+    /**
+     * 假设某影城设有n 个电影厅、m 个座位数，相对上座率=观众人次÷放映场次÷m÷n×100%
+     * @param date
+     * @return
+     */
     @Override
     public ResponseVO getMoviePlacingRateByDate(Date date) {
         try {
         	List<MoviePlacingRateVO> moviePlacingRateVOList = new ArrayList<MoviePlacingRateVO>();
-        	MoviePlacingRate po = new MoviePlacingRate();
-        	po.setMovieName("夏目友人帐");
-        	po.setMoviePlacingRate(20.05);
-        	moviePlacingRateVOList.add(new MoviePlacingRateVO(po));
-        	
-	        po.setMovieName("惊奇队长");
-	        po.setMoviePlacingRate(30.96);
-	        moviePlacingRateVOList.add(new MoviePlacingRateVO(po));
-	        
+            List<MoviePlacingAudience> moviePlacingAudienceList = new ArrayList<MoviePlacingAudience>();
+
+            //得到影厅数据 得到影厅数和座位数
+            List<Hall> hallList = statisticsMapper.selectAllHall();
+            int totalSeats = 0;
+            int hallNumber = hallList.size();
+            for (Hall h: hallList
+                 ) {
+                int row = h.getRow();
+                int col = h.getColumn();
+                totalSeats += row*col;
+            }
+            //得到电影上座人数列表
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            date = simpleDateFormat.parse(simpleDateFormat.format(date));
+        	moviePlacingAudienceList = statisticsMapper.selectMoviePlacingAudience(date);
+
+        	//计算上座率
+        	for (MoviePlacingAudience m:moviePlacingAudienceList
+                 ) {
+                double audiences = m.getAudience();
+                double playTimes = m.getTimes();
+                double rate = audiences/playTimes/totalSeats/hallNumber;
+                moviePlacingRateVOList.add(new MoviePlacingRateVO(m.getMovieName(),rate));
+        	}
 	        return ResponseVO.buildSuccess(moviePlacingRateVOList);
         } 
         catch (Exception e) {
