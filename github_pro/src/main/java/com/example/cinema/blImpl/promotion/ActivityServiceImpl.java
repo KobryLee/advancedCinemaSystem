@@ -10,12 +10,15 @@ import com.example.cinema.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by liying on 2019/4/20.
  */
 @Service
-public class ActivityServiceImpl implements ActivityService {
+public class ActivityServiceImpl implements ActivityService,ActivityServiceForBl {
 
     @Autowired
     ActivityMapper activityMapper;
@@ -54,5 +57,39 @@ public class ActivityServiceImpl implements ActivityService {
             return ResponseVO.buildFailure("失败");
         }
     }
+
+    @Override
+    public ResponseVO getActivityByTime(Timestamp timestamp){
+        try {
+            return ResponseVO.buildSuccess(activityMapper.selectByTime(timestamp));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("No activities found!");
+        }
+    }
+
+    @Override
+    public List<Activity> selectActivityByTimeAndMovie(Timestamp timestamp, int movieId){
+        try{
+            List<Activity> ac1= new ArrayList<Activity>();
+            List<Activity> ac2= new ArrayList<Activity>();
+
+            ac1=activityMapper.selectByTime(timestamp);
+            ac2=activityMapper.selectByMovie(movieId);
+
+            for(Activity i:ac2){
+                ac1.add(i);
+            }
+
+            return ac1;
+
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+
 
 }

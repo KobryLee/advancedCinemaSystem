@@ -1,9 +1,11 @@
 package com.example.cinema.data.promotion;
 
 import com.example.cinema.po.Activity;
+import com.example.cinema.vo.ActivityForm;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -24,9 +26,8 @@ public interface ActivityMapper {
 
     List<Activity> selectActivitiesWithoutMovie();
 
+    List<Activity> selectByTime(Timestamp timestamp);
 
-
-
-
+    List<Activity> selectByMovie(int movieId);
 
 }

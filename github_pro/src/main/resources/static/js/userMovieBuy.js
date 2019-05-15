@@ -152,7 +152,7 @@ function orderConfirmClick() {
                 "status": 0,
                 "islike": null,
                 "likeCount": null
-            }],
+            }],//activities 的返回值我写了两个接口，
             "coupon": {
                 "id": 8,
                 "description": "测试优惠券",
