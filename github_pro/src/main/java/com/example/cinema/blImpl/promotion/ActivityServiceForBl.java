@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface ActivityServiceForBl {
 
-    List<Activity> selectActivityByTimeAndMoive(Timestamp timestamp,int movieId);
+    List<Activity> selectActivityByTimeAndMovie(Timestamp timestamp,int movieId);
 
 }

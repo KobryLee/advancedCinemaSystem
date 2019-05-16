@@ -130,7 +130,7 @@ function orderConfirmClick() {
             "startTime": "2019-04-21T05:14:46.000+0800",
             "endTime": "2019-04-25T05:14:51.000+0800"
         }],
-        "activities": [{
+        "activities": [{ //根据时间和电影Id查找符合条件的活动见ActivityServiceImpl中实现的ActivityServiceForBl中的方法
             "id": 4,
             "name": "测试活动",
             "description": "测试活动",
@@ -152,8 +152,8 @@ function orderConfirmClick() {
                 "status": 0,
                 "islike": null,
                 "likeCount": null
-            }],//activities 的返回值我写了两个接口，
-            "coupon": {
+            }],//返回一个List<Activity>
+            "coupon": {// 这里的coupon是需要校验是否合法的coupon，我在ticketServiceImpl里面写了一个private方法实现校验
                 "id": 8,
                 "description": "测试优惠券",
                 "name": "123",

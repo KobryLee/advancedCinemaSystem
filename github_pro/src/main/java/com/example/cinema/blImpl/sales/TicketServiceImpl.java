@@ -73,7 +73,7 @@ public class TicketServiceImpl implements TicketService {
             }
             List<TicketVO> ticketVOS=new ArrayList<>();
             //Coupon coupon=couponService.getCouponById(couponId);
-            int movieId=tickets.get(0).getScheduleId()
+            int movieId=tickets.get(0).getScheduleId();
 
             double total=0;
             Timestamp timestamp=tickets.get(0).getTime();
@@ -89,7 +89,7 @@ public class TicketServiceImpl implements TicketService {
                 total+=fare;
             }
 
-            List<Activity> activities=activityServiceForBl.selectActivityByTimeAndMoive(timestamp,);
+            List<Activity> activities=activityServiceForBl.selectActivityByTimeAndMovie(timestamp,movieId);
             List<Coupon> couponsToGive=new ArrayList<>();
             for(Activity i:activities){
                 couponsToGive.add(i.getCoupon());
@@ -159,13 +159,22 @@ public class TicketServiceImpl implements TicketService {
 
     }
 
-    /*public ResponseVO checkCoupon(int couponId,Timestamp timestamp, int total){
+    private ResponseVO checkCoupon(int couponId,Timestamp timestamp, int total){
         try {
             Coupon coupon=couponService.getCouponById(couponId);
-            return timestamp.before(coupon.getEndTime()) && timestamp.after(coupon.getStartTime()) && sum>=coupon.getDiscountAmount() ;
+            if(timestamp.before(coupon.getEndTime()) && timestamp.after(coupon.getStartTime()) && total>=coupon.getDiscountAmount()){
+                return ResponseVO.buildSuccess(coupon);
+            }
+            else{
+                return ResponseVO.buildFailure("It's not a validated coupon");
+            }
+        }catch (Exception e){
+            return ResponseVO.buildFailure("Something went wrong!");
         }
 
-    }*/
+    }
+
+
 
 
 }

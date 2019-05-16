@@ -71,16 +71,11 @@ public class ActivityServiceImpl implements ActivityService,ActivityServiceForBl
     @Override
     public List<Activity> selectActivityByTimeAndMovie(Timestamp timestamp, int movieId){
         try{
-            List<Activity> ac1= new ArrayList<Activity>();
-            List<Activity> ac2= new ArrayList<Activity>();
-
-            ac1=activityMapper.selectByTime(timestamp);
-            ac2=activityMapper.selectByMovie(movieId);
-
+            List<Activity> ac1= activityMapper.selectByTime(timestamp);
+            List<Activity> ac2= activityMapper.selectActivitiesByMovie(movieId);
             for(Activity i:ac2){
                 ac1.add(i);
             }
-
             return ac1;
 
         }catch(Exception e){
