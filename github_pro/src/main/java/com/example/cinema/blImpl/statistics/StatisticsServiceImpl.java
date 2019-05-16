@@ -8,7 +8,7 @@ import com.example.cinema.vo.MoviePlacingRateVO;
 import com.example.cinema.vo.MovieScheduleTimeVO;
 import com.example.cinema.vo.MovieTotalBoxOfficeVO;
 import com.example.cinema.vo.ResponseVO;
-import com.sun.javafx.scene.control.skin.VirtualFlow;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

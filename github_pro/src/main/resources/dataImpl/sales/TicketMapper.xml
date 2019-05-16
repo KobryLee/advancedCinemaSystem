@@ -42,6 +42,11 @@
         delete from ticket where id=#{ticketId}
     </delete>
 
+    <update id="VIPPay">
+        update vip_card set balance=balance-#{toPay}
+        where #{userId}=user_id
+    </update>
+
     <resultMap id="Ticket" type="com.example.cinema.po.Ticket">
         <result column="schedule_id" property="scheduleId"></result>
         <result column="id" property="id"></result>

@@ -31,5 +31,7 @@ public interface TicketMapper {
 
     @Scheduled(cron = "0/1 * * * * ?")
     void cleanExpiredTicket();
+
+    void VIPPay(@Param("userId")int userId,@Param("toPay")double toPay);
 }
 

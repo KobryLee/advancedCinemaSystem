@@ -6,6 +6,7 @@ import com.example.cinema.blImpl.management.hall.HallServiceForBl;
 import com.example.cinema.blImpl.management.schedule.ScheduleServiceForBl;
 import com.example.cinema.blImpl.promotion.ActivityServiceForBl;
 import com.example.cinema.blImpl.promotion.CouponServiceForBl;
+import com.example.cinema.blImpl.promotion.VIPServiceForBl;
 import com.example.cinema.data.promotion.ActivityMapper;
 import com.example.cinema.data.promotion.CouponMapper;
 import com.example.cinema.data.sales.TicketMapper;
@@ -34,27 +35,31 @@ public class TicketServiceImpl implements TicketService {
     CouponServiceForBl couponService;
     @Autowired
     ActivityServiceForBl activityServiceForBl;
+    @Autowired
+    VIPServiceForBl vipServiceForBl;
 
 
     @Override
     @Transactional
     public ResponseVO addTicket(TicketForm ticketForm) {
         try{
-            List<Ticket> tickets= new ArrayList<Ticket>();
+
 
             int userId=ticketForm.getUserId();
             int scheduleId=ticketForm.getScheduleId();
             List<SeatForm> seats= ticketForm.getSeats();
-            Ticket ticket= new Ticket();
+
             for(SeatForm s: seats){
+                Ticket ticket= new Ticket();
                 ticket.setUserId(userId) ;
                 ticket.setScheduleId(scheduleId);
                 ticket.setColumnIndex(s.getColumnIndex());
                 ticket.setRowIndex(s.getRowIndex());
                 ticket.setState(0);
-                tickets.add(ticket);
+
+                ticketMapper.insertTicket(ticket);
             }
-            ticketMapper.insertTickets(tickets);
+
             return ResponseVO.buildSuccess();}
         catch (Exception e){
             e.printStackTrace();
@@ -72,17 +77,19 @@ public class TicketServiceImpl implements TicketService {
                 tickets.add(ticketMapper.selectTicketById(i));
             }
             List<TicketVO> ticketVOS=new ArrayList<>();
-            //Coupon coupon=couponService.getCouponById(couponId);
+            Coupon coupon=couponService.getCouponById(couponId);
             int movieId=tickets.get(0).getScheduleId();
 
             double total=0;
             Timestamp timestamp=tickets.get(0).getTime();
+
             for(Ticket t:tickets){
                 int scheduleId=t.getScheduleId();
                 ScheduleItem schedule=scheduleService.getScheduleItemById(scheduleId);
                 double fare=schedule.getFare();
-                timestamp=t.getTime();
-                //t.setState(1);  --> 不缺定是否要改变ticket的状态
+
+                ticketMapper.updateTicketState(t.getId(),1);   //--> 不缺定是否要改变ticket的状态
+                t.setState(1);
 
                 TicketVO ticketVO=t.getVO();
                 ticketVOS.add(ticketVO);
@@ -101,13 +108,17 @@ public class TicketServiceImpl implements TicketService {
             ticketWithCouponVO.setTicketVOList(ticketVOS);
             ticketWithCouponVO.setTotal(total);
 
-            return ResponseVO.buildSuccess(ticketWithCouponVO);
+            if(coupon.getTargetAmount()<=total){
+                return ResponseVO.buildSuccess(ticketWithCouponVO);
+
+            }
+            return ResponseVO.buildFailure("总额低于门槛");
 
         }catch (Exception e){
             e.printStackTrace();
-            return ResponseVO.buildFailure("");
+            return ResponseVO.buildFailure("失败");
         }
-    }//返回的是一个TicketWithCouponVO,里面包含了js文件里面的TicketVOList、没有优惠后的总价total，以及赠送的额coupons列表
+    }//返回的是一个TicketWithCouponVO,里面包含了js文件里面的TicketVOList、没有优惠后的总价total，以及赠送的coupons列表
 
     @Override
     public ResponseVO getBySchedule(int scheduleId) {
@@ -142,7 +153,66 @@ public class TicketServiceImpl implements TicketService {
     @Override
     @Transactional
     public ResponseVO completeByVIPCard(List<Integer> id, int couponId) {
-        return null;
+        try{
+            int userId=ticketMapper.selectTicketById(id.get(0)).getUserId();
+            VIPCard vipCard=vipServiceForBl.selectCardByUserId(userId);
+            Coupon coupon = couponService.getCouponById(couponId);
+
+            List<Ticket> tickets=new ArrayList<>();
+            int movieId=tickets.get(0).getScheduleId();
+            for(int i:id){
+                tickets.add(ticketMapper.selectTicketById(i));
+            }
+            List<TicketVO> ticketVOS=new ArrayList<>();
+            Timestamp timestamp=tickets.get(0).getTime();
+            double total=0;
+
+            for(Ticket t: tickets){
+                int scheduleId=t.getScheduleId();
+                ScheduleItem schedule=scheduleService.getScheduleItemById(scheduleId);
+                double fare=schedule.getFare();
+
+                t.setState(1);
+                ticketMapper.updateTicketState(t.getId(),1);   //--> 不缺定是否要改变ticket的状态
+
+                TicketVO ticketVO=t.getVO();
+                ticketVOS.add(ticketVO);
+                total+=fare;
+            }
+
+            List<Activity> activities=activityServiceForBl.selectActivityByTimeAndMovie(timestamp,movieId);
+            TicketWithCouponVO ticketWithCouponVO=new TicketWithCouponVO();
+
+            List<Coupon> couponsToGive=new ArrayList<>();
+            for(Activity i:activities){
+                couponsToGive.add(i.getCoupon());
+            }
+            ticketWithCouponVO.setCoupons(couponsToGive);
+            ticketWithCouponVO.setTicketVOList(ticketVOS);
+            ticketWithCouponVO.setTotal(total);
+
+            if(coupon.getTargetAmount()<=total){
+                double Payment=total-coupon.getDiscountAmount();
+                if(vipCard.getBalance()>=Payment){
+                    vipCard.setBalance(vipCard.getBalance()-Payment);
+                    ticketMapper.VIPPay(userId,Payment);
+                    return ResponseVO.buildSuccess(ticketWithCouponVO);
+                }
+                else{
+                    return ResponseVO.buildFailure("会员卡余额不足！");
+                }
+            }
+            else{
+                return ResponseVO.buildFailure("总额未达到优惠券使用门槛");
+
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("失败");
+        }
+
     }
 
     @Override
@@ -159,7 +229,7 @@ public class TicketServiceImpl implements TicketService {
 
     }
 
-    private ResponseVO checkCoupon(int couponId,Timestamp timestamp, int total){
+    /*public ResponseVO checkCoupon(int couponId,Timestamp timestamp, int total){
         try {
             Coupon coupon=couponService.getCouponById(couponId);
             if(timestamp.before(coupon.getEndTime()) && timestamp.after(coupon.getStartTime()) && total>=coupon.getDiscountAmount()){
@@ -172,7 +242,7 @@ public class TicketServiceImpl implements TicketService {
             return ResponseVO.buildFailure("Something went wrong!");
         }
 
-    }
+    }*/
 
 
 
