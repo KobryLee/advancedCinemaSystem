@@ -48,7 +48,8 @@ public class TicketServiceImpl implements TicketService {
             int userId=ticketForm.getUserId();
             int scheduleId=ticketForm.getScheduleId();
             List<SeatForm> seats= ticketForm.getSeats();
-
+            List<Integer> tickeIdList = new ArrayList<int>();
+            
             for(SeatForm s: seats){
                 Ticket ticket= new Ticket();
                 ticket.setUserId(userId) ;
@@ -56,11 +57,14 @@ public class TicketServiceImpl implements TicketService {
                 ticket.setColumnIndex(s.getColumnIndex());
                 ticket.setRowIndex(s.getRowIndex());
                 ticket.setState(0);
-
+                
                 ticketMapper.insertTicket(ticket);
+
+                tickeIdList.add(ticket.getId());
             }//对于每一张ticket都在数据库中添加一个ticket对象
 
-            return ResponseVO.buildSuccess();}
+            return ResponseVO.buildSuccess(tickeIdList);
+        }
         catch (Exception e){
             e.printStackTrace();
             return ResponseVO.buildFailure("选座失败！");
