@@ -58,7 +58,7 @@ public class TicketServiceImpl implements TicketService {
                 ticket.setState(0);
 
                 ticketMapper.insertTicket(ticket);
-            }
+            }//对于每一张ticket都在数据库中添加一个ticket对象
 
             return ResponseVO.buildSuccess();}
         catch (Exception e){
@@ -78,7 +78,7 @@ public class TicketServiceImpl implements TicketService {
             }
             List<TicketVO> ticketVOS=new ArrayList<>();
             Coupon coupon=couponService.getCouponById(couponId);
-            int movieId=tickets.get(0).getScheduleId();
+            int movieId=tickets.get(0).getScheduleId();//通过ticket寻找movieId,由于多张tickets都只对应1部电影，因此只要取第一张ticket
 
             double total=0;
             Timestamp timestamp=tickets.get(0).getTime();
@@ -88,30 +88,32 @@ public class TicketServiceImpl implements TicketService {
                 ScheduleItem schedule=scheduleService.getScheduleItemById(scheduleId);
                 double fare=schedule.getFare();
 
-                ticketMapper.updateTicketState(t.getId(),1);   //--> 不缺定是否要改变ticket的状态
+                ticketMapper.updateTicketState(t.getId(),1);   // 改变ticket状态为已购买（"1"）
                 t.setState(1);
 
                 TicketVO ticketVO=t.getVO();
-                ticketVOS.add(ticketVO);
+                ticketVOS.add(ticketVO);//构造ticketVO后加入一个ticketVOS的列表
                 total+=fare;
             }
 
             List<Activity> activities=activityServiceForBl.selectActivityByTimeAndMovie(timestamp,movieId);
-            List<Coupon> couponsToGive=new ArrayList<>();
+            //根据时间和电影ID在数据库中寻找满足条件的活动
+            List<Coupon> couponsToGive=new ArrayList<>();//构造根据活动赠送的优惠券列表
             for(Activity i:activities){
                 couponsToGive.add(i.getCoupon());
-            }
+            }//添加赠送的优惠券
 
 
             TicketWithCouponVO ticketWithCouponVO=new TicketWithCouponVO();
             ticketWithCouponVO.setCoupons(couponsToGive);
             ticketWithCouponVO.setTicketVOList(ticketVOS);
             ticketWithCouponVO.setTotal(total);
+            //构造ticketWithCouponVO作为ResponseVO中的content
 
             if(coupon.getTargetAmount()<=total){
                 return ResponseVO.buildSuccess(ticketWithCouponVO);
 
-            }
+            }//校验优惠券（默认前端已经做好根据时间筛选优惠券的操作，即这里选择的优惠券是在优惠期限以内的）
             return ResponseVO.buildFailure("总额低于门槛");
 
         }catch (Exception e){
@@ -148,7 +150,7 @@ public class TicketServiceImpl implements TicketService {
             e.printStackTrace();
             return ResponseVO.buildFailure("失败!");
         }
-    }
+    }//需要重写的
 
     @Override
     @Transactional
@@ -195,7 +197,7 @@ public class TicketServiceImpl implements TicketService {
                 double Payment=total-coupon.getDiscountAmount();
                 if(vipCard.getBalance()>=Payment){
                     vipCard.setBalance(vipCard.getBalance()-Payment);
-                    ticketMapper.VIPPay(userId,Payment);
+                    ticketMapper.VIPPay(userId,Payment);//会员卡扣费
                     return ResponseVO.buildSuccess(ticketWithCouponVO);
                 }
                 else{
@@ -227,7 +229,7 @@ public class TicketServiceImpl implements TicketService {
             return ResponseVO.buildFailure("失败!");
         }
 
-    }
+    }//取消锁座
 
     /*public ResponseVO checkCoupon(int couponId,Timestamp timestamp, int total){
         try {
