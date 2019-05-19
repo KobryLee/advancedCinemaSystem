@@ -43,8 +43,7 @@
     </delete>
 
     <update id="VIPPay">
-        update vip_card set balance=balance-#{toPay}
-        where #{userId}=user_id
+        update vip_card set balance=(balance-#{toPay}) where #{userId}=user_id
     </update>
 
     <resultMap id="Ticket" type="com.example.cinema.po.Ticket">

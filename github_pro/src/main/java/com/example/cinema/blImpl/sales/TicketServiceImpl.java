@@ -48,7 +48,7 @@ public class TicketServiceImpl implements TicketService {
             int userId=ticketForm.getUserId();
             int scheduleId=ticketForm.getScheduleId();
             List<SeatForm> seats= ticketForm.getSeats();
-            List<Integer> tickeIdList = new ArrayList<int>();
+            List<Integer> tickeIdList = new ArrayList<>();
             
             for(SeatForm s: seats){
                 Ticket ticket= new Ticket();
@@ -165,10 +165,11 @@ public class TicketServiceImpl implements TicketService {
             Coupon coupon = couponService.getCouponById(couponId);
 
             List<Ticket> tickets=new ArrayList<>();
-            int movieId=tickets.get(0).getScheduleId();
+
             for(int i:id){
                 tickets.add(ticketMapper.selectTicketById(i));
             }
+            int movieId=tickets.get(0).getScheduleId();
             List<TicketVO> ticketVOS=new ArrayList<>();
             Timestamp timestamp=tickets.get(0).getTime();
             double total=0;
@@ -202,6 +203,7 @@ public class TicketServiceImpl implements TicketService {
                 if(vipCard.getBalance()>=Payment){
                     vipCard.setBalance(vipCard.getBalance()-Payment);
                     ticketMapper.VIPPay(userId,Payment);//会员卡扣费
+                    //System.out.println("会员卡扣费成功");
                     return ResponseVO.buildSuccess(ticketWithCouponVO);
                 }
                 else{

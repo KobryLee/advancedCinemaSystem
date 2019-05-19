@@ -132,15 +132,15 @@ function orderConfirmClick() {
     }
 
     var orderInfo = {
-        ticketVOList: [{
-            "id": 63,
-            "userId": 15,
-            "scheduleId": 67,
-            "columnIndex": 5,
-            "rowIndex": 1,
-            "state": "未完成"
-        }, {"id": 64, "userId": 15, "scheduleId": 67, "columnIndex": 6, "rowIndex": 1, "state": "未完成"}],
-        "total": 120.0,
+        // ticketVOList: [{
+        //     "id": 63,
+        //     "userId": 15,
+        //     "scheduleId": 67,
+        //     "columnIndex": 5,
+        //     "rowIndex": 1,
+        //     "state": "未完成"
+        // }, {"id": 64, "userId": 15, "scheduleId": 67, "columnIndex": 6, "rowIndex": 1, "state": "未完成"}],
+        // "total": 120.0,
         "coupons": [{
             "id": 5,
             "description": "测试优惠券",
@@ -238,9 +238,10 @@ function switchPay(type) {
 
 function renderOrder(orderInfo) {
     var ticketStr = "<div>" + selectedSeats.length + "张</div>";
-    for (let ticketInfo of orderInfo.ticketVOList) {
-        ticketStr += "<div>" + (ticketInfo.rowIndex + 1) + "排" + (ticketInfo.columnIndex + 1) + "座</div>";
-        order.ticketId.push(ticketInfo.id);
+    for (let ticketInfo of selectedSeats) {
+        ticketStr += "<div>" + (ticketInfo[0] + 1) + "排" + (ticketInfo[1] + 1) + "座</div>";
+        //order.ticketId.push(ticketInfo.id);
+        //更改
     }
     $('#order-tickets').html(ticketStr);
 
@@ -280,7 +281,8 @@ function payConfirmClick() {
             '/ticket/vip/buy?'+"ticketId="+order.ticketId+"&couponId="+order.couponId,
             {},
             function(res){
-                alert("购票成功");
+
+                console.log(order.ticketId+" +++");
             },
             function(error){
                 alert(error);
@@ -318,7 +320,7 @@ function postPayRequest() {
     $('#buyModal').modal('hide')
 }
 function lockSeat(ticketlist){
-    console.log(ticketlist);
+    //console.log(ticketlist);
     var temp = [];
     for (let seatLoc of selectedSeats) {
         temp.push({columnIndex:seatLoc[1],rowIndex:seatLoc[0]});
@@ -332,6 +334,11 @@ function lockSeat(ticketlist){
         '/ticket/lockSeat',
         form,
         function (res) {
+            console.log(res.content);
+            for(let it of res.content){
+                order.ticketId.push(it);
+                console.log(it);
+            }
         },
         function (error) {
             alert(error);
