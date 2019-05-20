@@ -14,40 +14,41 @@ $(document).ready(function () {
 
     // TODO:填空
     function renderTicketList(list) {
-    	$('.ticket-on-list').empty();
-        var ticketDomStr = '';
+    	$('.ticket-on-table').empty();
+        var ticketDomStr = 
+        	"<tr>" +
+        	"<td><b>电影名称</b></td>" +
+        	"<td><b>影厅名</b></td>" +
+    		"<td><b>座位</b></td>" +
+   			"<td><b>放映时间</b></td>" +
+   			"<td><b>预计结束时间</b></td>" +
+   			"<td><b>状态</b></td>" +
+            "</tr>";
+        
         list.forEach(function (ticket) {
         	ticketDomStr +=
-                "<li class='ticket-item card'>" +
-                "<img class='ticket-img' src='" + (ticket.posterUrl || "../images/defaultAvatar.jpg") + "'/>" +
-                "<div class='ticket-info'>" +
-                "<div class='ticket-title'>" + ticket.movieName + " " + ticket.seats.length + "张" + "</div>" +
-                "<div class='ticket-time'>" + getDate(ticket.startTime, ticket.endTime) + "</div>" +
-                "<div class='ticket-location'>" + ticket.hallName + "：" + getSeats(ticket.seats) + "</div>" +
-                "<div class='ticket-state'>" + 
-                "<span class='ticket-fare'> 总价：" + ticket.fare * ticket.seats.length + "</span>" +
-                "<span class='label " + (ticket.status == 1 ? "label-success" : (!ticket.status ? "label-danger" : "label-default")) + "'>" +
-        		(ticket.status == 1 ? "已完成" : (!ticket.status ? "未完成" : "已失效")) + "</span>" +
-        		"</div>" +
-        		"</div>" +
-                "</li>" ;
+        		"<tr>" +
+            	"<td>" + ticket.movieName + "</td>" +
+            	"<td>" + ticket.hallName + "</td>" +
+        		"<td>" + getSeats(ticket.seats) + "</td>" +
+       			"<td>" + getDate(ticket.startTime) + "</td>" +
+       			"<td>" + getDate(ticket.endTime) + "</td>" +
+       			"<td>" + (ticket.state == 1 ? "已完成" : (!ticket.state ? "未完成" : "已失效")) + "</td>" +
+                "</tr>";
         });
-        $('.ticket-on-list').append(ticketDomStr);
+        $('.ticket-on-table').append(ticketDomStr);
     }
     
-    function getDate(startTime, endTime) {
-    	var date1 = new Date(startTime);
-    	var date2 = new Date(endTime);
-    	var res = formatDate(date1);
-    	res += " " + formatTime(date1);
-    	res += " ~ " + formatTime(date2);
+    function getDate(time) {
+    	var date = new Date(time);
+    	var res = formatDate(date);
+    	res += " " + formatTime(date);
     	return res;
 	}
     
     function getSeats(list) {
     	var res = "";
     	list.forEach(function (seat) {
-    		res += " ";
     		res += seat.rowIndex + "排"
     		res += seat.columnIndex + "座";
     	});

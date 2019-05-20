@@ -12,6 +12,8 @@ public class SeatForm {
      * 排号
      */
     private int rowIndex;
+    
+    public SeatForm() {}
 
     public SeatForm(int columnIndex, int rowIndex) {
 		this.columnIndex = columnIndex;

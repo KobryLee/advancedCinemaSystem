@@ -22,18 +22,15 @@ public class TicketForm {
     private int scheduleId;
     
     /**
+     * 电影名
+     */
+    private String movieName;
+    
+    /**
      * 影厅名称
      */
     private String hallName;
     
-    /**
-     * 电影名
-     */
-    private String movieName;
-    /**
-     * 海报url
-     */
-    private String posterUrl;
     /**
      * 开始放映时间
      */
@@ -42,22 +39,17 @@ public class TicketForm {
      * 结束放映时间
      */
     private Date endTime;
-    /**
-     * 票价
-     */
-    private double fare;
     
-    private List<SeatForm> seats;
+    /**
+     * 座位
+     */
+    private List<SeatForm> seats; 
     
     /**
      * 订单状态：
      * 0：未完成 1：已完成 2:已失效
      */
     private int state;
-    
-    public TicketForm() {
-    	seats = new ArrayList<SeatForm>();
-    }
     
     public TicketForm(int userId, int scheduleId, ScheduleItem scheduleItem) {
 		this.userId = userId;
@@ -67,7 +59,6 @@ public class TicketForm {
 		this.movieName = scheduleItem.getMovieName();
 		this.startTime = scheduleItem.getStartTime();
 		this.endTime = scheduleItem.getEndTime();
-		this.fare = scheduleItem.getFare();
 	}
 
     public void addSeat(int columnIndex, int rowIndex) {
@@ -78,7 +69,7 @@ public class TicketForm {
         return seats;
     }
 
-    public void setSeats(List<SeatForm> seats) {
+    public void setSeat(List<SeatForm> seats) {
         this.seats = seats;
     }
 
@@ -114,14 +105,6 @@ public class TicketForm {
 		this.movieName = movieName;
 	}
 	
-	public String getPosterUrl() {
-		return posterUrl;
-	}
-
-	public void setPosterUrl(String posterUrl) {
-		this.posterUrl = posterUrl;
-	}
-
 	public Date getStartTime() {
 		return startTime;
 	}
@@ -136,14 +119,6 @@ public class TicketForm {
 
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
-	}
-
-	public double getFare() {
-		return fare;
-	}
-
-	public void setFare(double fare) {
-		this.fare = fare;
 	}
 
 	public int getState() {

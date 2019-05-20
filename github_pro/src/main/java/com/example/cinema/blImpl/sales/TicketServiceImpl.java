@@ -1,34 +1,23 @@
 package com.example.cinema.blImpl.sales;
 
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.cinema.bl.sales.TicketService;
 import com.example.cinema.blImpl.management.hall.HallServiceForBl;
+import com.example.cinema.blImpl.management.schedule.MovieServiceForBl;
 import com.example.cinema.blImpl.management.schedule.ScheduleServiceForBl;
 import com.example.cinema.blImpl.promotion.ActivityServiceForBl;
 import com.example.cinema.blImpl.promotion.CouponServiceForBl;
 import com.example.cinema.blImpl.promotion.VIPServiceForBl;
 import com.example.cinema.data.sales.TicketMapper;
-import com.example.cinema.po.Activity;
-import com.example.cinema.po.Coupon;
-import com.example.cinema.po.Hall;
-import com.example.cinema.po.ScheduleItem;
-import com.example.cinema.po.Ticket;
-import com.example.cinema.po.VIPCard;
-import com.example.cinema.vo.ResponseVO;
-import com.example.cinema.vo.ScheduleWithSeatVO;
-import com.example.cinema.vo.SeatForm;
-import com.example.cinema.vo.TicketForm;
-import com.example.cinema.vo.TicketVO;
-import com.example.cinema.vo.TicketWithCouponVO;
+import com.example.cinema.po.*;
+import com.example.cinema.vo.*;
+
 /**
  * Created by liying on 2019/4/16.
  */
@@ -37,6 +26,8 @@ public class TicketServiceImpl implements TicketService {
 
     @Autowired
     TicketMapper ticketMapper;
+    @Autowired
+    MovieServiceForBl movieService;
     @Autowired
     ScheduleServiceForBl scheduleService;
     @Autowired
@@ -159,46 +150,18 @@ public class TicketServiceImpl implements TicketService {
     @Override
     public ResponseVO getTicketByUser(int userId) {
     	try {
-    		/*List<Ticket> tickets = ticketMapper.selectTicketByUser(userId);
-    		Map<Integer, TicketForm> ticketForms = new HashMap<Integer, TicketForm>();
-    		tickets.stream().forEach(ticket -> {
-    			int scheduleId = ticket.getScheduleId();
-    			if(ticketForms.containsKey(scheduleId)) {
-    				TicketForm ticketForm = ticketForms.get(scheduleId);
-    				ticketForm.addSeat(ticket.getColumnIndex(), ticket.getRowIndex());
-    			}
-    			else {
-    				ScheduleItem scheduleItem = scheduleService.getScheduleItemById(scheduleId);
-    				TicketForm ticketForm = new TicketForm(userId, scheduleId, scheduleItem);
-    				Movie movie = movieService.getMovieById(scheduleItem.getMovieId());
-    				ticketForm.setPosterUrl(movie.getPosterUrl());
-    				ticketForm.addSeat(ticket.getColumnIndex(), ticket.getRowIndex());
-    				ticketForm.setState(ticket.getState());
-    				ticketForms.put(scheduleId, ticketForm);
-    			}
-            });
-    		
-    		
-    		return ResponseVO.buildSuccess((List<TicketForm>) ticketForms.values()); */
-    		TicketForm ticketForm = new TicketForm();
-    		ticketForm.setUserId(userId);
-    		ticketForm.setScheduleId(22);
-    		ticketForm.setHallName("2号激光厅");
-    		ticketForm.setMovieName("夏目友人帐");
-    		ticketForm.setPosterUrl("http://n.sinaimg.cn/translate/640/w600h840/20190312/ampL-hufnxfm4278816.jpg");
-    		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-    		Date date1 = format.parse("2019-05-15 19:00");
-    		Date date2 = format.parse("2019-05-15 21:00");
-    		ticketForm.setStartTime(date1);
-    		ticketForm.setEndTime(date2);
-    		ticketForm.setFare(45);
-    		
-    		ticketForm.addSeat(5, 5);
-    		ticketForm.addSeat(6, 5);
-    		ticketForm.setState(1);
+    		List<Ticket> tickets = ticketMapper.selectTicketByUser(userId);
     		List<TicketForm> ticketForms = new ArrayList<TicketForm>();
-    		ticketForms.add(ticketForm);
-    		return ResponseVO.buildSuccess(ticketForms); 
+    		tickets.stream().forEach(ticket -> {
+				int scheduleId = ticket.getScheduleId();
+				ScheduleItem scheduleItem = scheduleService.getScheduleItemById(scheduleId);
+				TicketForm ticketForm = new TicketForm(userId, scheduleId, scheduleItem);
+				ticketForm.addSeat(ticket.getColumnIndex(), ticket.getRowIndex());
+				ticketForm.setState(ticket.getState());
+				ticketForms.add(ticketForm);
+    		});
+    		
+    		return ResponseVO.buildSuccess(ticketForms);
         }
     	catch (Exception e){
             e.printStackTrace();
