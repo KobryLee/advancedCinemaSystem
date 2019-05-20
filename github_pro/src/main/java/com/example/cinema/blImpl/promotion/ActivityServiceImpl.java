@@ -74,7 +74,9 @@ public class ActivityServiceImpl implements ActivityService,ActivityServiceForBl
             List<Activity> ac1= activityMapper.selectByTime(timestamp);
             List<Activity> ac2= activityMapper.selectActivitiesByMovie(movieId);
             for(Activity i:ac2){
-                ac1.add(i);
+                if(!ac1.contains(i)){
+                    ac1.add(i);
+                }
             }
             return ac1;
 

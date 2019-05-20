@@ -17,6 +17,11 @@
 
     </insert>
 
+    <insert id="addCoupon">
+        insert into coupon_user(coupon_id,user_id)
+        values (#{couponId},#{userId})
+    </insert>
+
     <select id="selectTicketById" resultMap="Ticket">
         select * from ticket where id=#{id}
     </select>

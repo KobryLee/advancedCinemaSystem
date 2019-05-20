@@ -84,7 +84,7 @@
             activity_movie am
             on
                 a.id=am.activity_id
-        where #{timestamp} between (a.start_time and a.end_time) and movie_id is null
+        where #{timestamp} between a.start_time and a.end_time and movie_id is null
     </select>
 
 

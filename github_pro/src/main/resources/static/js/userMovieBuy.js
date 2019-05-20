@@ -7,6 +7,7 @@ var useVIP = true;
 var userId = sessionStorage.getItem('id');
 var fare ;
 var allcoupons = [];
+var total;
 $(document).ready(function () {
     scheduleId = parseInt(window.location.href.split('?')[1].split('&')[1].split('=')[1]);
 
@@ -99,6 +100,7 @@ function seatClick(id, i, j) {
         }
         $('#order-confirm-btn').removeAttr("disabled");
     }
+    total = parseFloat((selectedSeats.length * fare)+"").toFixed(2);
     $('#seat-detail').html(seatDetailStr);
 }
 
@@ -120,17 +122,43 @@ function orderConfirmClick() {
         }
     );
 
+    // allcoupons=[{
+    //     "id": 5,
+    //     "description": "测试优惠券",
+    //     "name": "品质联盟",
+    //     "targetAmount": 50.0,
+    //     "discountAmount": 4.0,
+    //     "startTime": "2019-04-21T05:14:46.000+0800",
+    //     "endTime": "2019-04-25T05:14:51.000+0800"
+    // }, {
+    //     "id": 5,
+    //     "description": "测试优惠券",
+    //     "name": "品质联盟",
+    //     "targetAmount": 20.0,
+    //     "discountAmount": 2.0,
+    //     "startTime": "2019-04-21T05:14:46.000+0800",
+    //     "endTime": "2019-06-25T05:14:51.000+0800"
+    // }];
+
     for (var i = 0;i<allcoupons.length;i++){
+        console.log(allcoupons[i].startTime);
         var start = new Date(allcoupons[i].startTime);
         var end = new Date(allcoupons[i].endTime);
         var now = new Date();
-        if(now.getDate()<=end.getDate()){
-            if(now.getDate()>=end.getDate()){
-                coupons.push(allcoupons[i]);
+        if(now.getTime()<=end.getTime()){
+            console.log(1);
+            if(now.getTime()>=start.getTime()){
+                console.log(2);
+                console.log(total);
+                if(total>=allcoupons[i].targetAmount){
+                    console.log(3);
+                    coupons.push(allcoupons[i]);
+                }
             }
         }
     }
-
+    console.log(allcoupons);
+    console.log(coupons);
     var orderInfo = {
         // ticketVOList: [{
         //     "id": 63,
@@ -141,23 +169,24 @@ function orderConfirmClick() {
         //     "state": "未完成"
         // }, {"id": 64, "userId": 15, "scheduleId": 67, "columnIndex": 6, "rowIndex": 1, "state": "未完成"}],
         // "total": 120.0,
-        "coupons": [{
-            "id": 5,
-            "description": "测试优惠券",
-            "name": "品质联盟",
-            "targetAmount": 50.0,
-            "discountAmount": 4.0,
-            "startTime": "2019-04-21T05:14:46.000+0800",
-            "endTime": "2019-04-25T05:14:51.000+0800"
-        }, {
-            "id": 5,
-            "description": "测试优惠券",
-            "name": "品质联盟",
-            "targetAmount": 20.0,
-            "discountAmount": 2.0,
-            "startTime": "2019-04-21T05:14:46.000+0800",
-            "endTime": "2019-04-25T05:14:51.000+0800"
-        }]
+        "coupons":coupons
+        // [{
+        //      "id": 5,
+        //      "description": "测试优惠券",
+        //      "name": "品质联盟",
+        //      "targetAmount": 50.0,
+        //      "discountAmount": 4.0,
+        //      "startTime": "2019-04-21T05:14:46.000+0800",
+        //      "endTime": "2019-04-25T05:14:51.000+0800"
+        //  }, {
+        //     "id": 5,
+        //     "description": "测试优惠券",
+        //     "name": "品质联盟",
+        //     "targetAmount": 20.0,
+        //     "discountAmount": 2.0,
+        //     "startTime": "2019-04-21T05:14:46.000+0800",
+        //     "endTime": "2019-04-25T05:14:51.000+0800"
+        // }]
         // "activities": [{
         //     "id": 4,
         //     "name": "测试活动",
@@ -246,7 +275,7 @@ function renderOrder(orderInfo) {
     $('#order-tickets').html(ticketStr);
 
     // var total = orderInfo.total.toFixed(2);需要更改
-    var total = parseFloat((selectedSeats.length * fare)+"").toFixed(2);
+    total = parseFloat((selectedSeats.length * fare)+"").toFixed(2);
     console.log(total);
     $('#order-total').text(total);
     $('#order-footer-total').text("总金额： ¥" + total);
@@ -281,7 +310,6 @@ function payConfirmClick() {
             '/ticket/vip/buy?'+"ticketId="+order.ticketId+"&couponId="+order.couponId,
             {},
             function(res){
-
                 console.log(order.ticketId+" +++");
             },
             function(error){
@@ -289,7 +317,7 @@ function payConfirmClick() {
             }
         );
         postPayRequest();
-        alert("aaa");
+        // alert("aaa");
     } else {
         if (validateForm()) {
             if ($('#userBuy-cardNum').val() === "123123123" && $('#userBuy-cardPwd').val() === "123123") {
@@ -297,7 +325,7 @@ function payConfirmClick() {
                     '/ticket/buy?'+"ticketId="+order.ticketId+"&couponId="+order.couponId,
                     {},
                     function(res){
-                        alert("购票成功");
+                        // alert("购票成功");
                         console.log(order.ticketId+"&couponId="+order.couponId);
                     },
                     function(error){
