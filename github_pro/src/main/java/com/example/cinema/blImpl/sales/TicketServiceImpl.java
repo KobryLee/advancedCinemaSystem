@@ -93,6 +93,7 @@ public class TicketServiceImpl implements TicketService {
             List<TicketVO> ticketVOS=new ArrayList<>();
             Coupon coupon=couponService.getCouponById(couponId);
             int movieId=tickets.get(0).getScheduleId();//通过ticket寻找movieId,由于多张tickets都只对应1部电影，因此只要取第一张ticket
+            int userId=tickets.get(0).getUserId();
 
             double total=0;
             Timestamp timestamp=tickets.get(0).getTime();
@@ -114,7 +115,13 @@ public class TicketServiceImpl implements TicketService {
             //根据时间和电影ID在数据库中寻找满足条件的活动
             List<Coupon> couponsToGive=new ArrayList<>();//构造根据活动赠送的优惠券列表
             for(Activity i:activities){
-                couponsToGive.add(i.getCoupon());
+
+                if(!couponService.existCouponUser(i.getCoupon().getId(),userId)){
+                    System.out.println(couponId+" "+userId);
+                    couponsToGive.add(i.getCoupon());
+                    ticketMapper.addCoupon(i.getCoupon().getId(),userId);
+                }
+
             }//添加赠送的优惠券
 
 
@@ -125,6 +132,7 @@ public class TicketServiceImpl implements TicketService {
             //构造ticketWithCouponVO作为ResponseVO中的content
 
             if(coupon.getTargetAmount()<=total){
+                couponService.deleteCoupon(couponId,userId);
                 return ResponseVO.buildSuccess(ticketWithCouponVO);
 
             }//校验优惠券（默认前端已经做好根据时间筛选优惠券的操作，即这里选择的优惠券是在优惠期限以内的）
@@ -210,8 +218,8 @@ public class TicketServiceImpl implements TicketService {
     @Transactional
     public ResponseVO completeByVIPCard(List<Integer> id, int couponId) {
         try{
-            int userId=ticketMapper.selectTicketById(id.get(0)).getUserId();
-            VIPCard vipCard=vipServiceForBl.selectCardByUserId(userId);
+
+
             Coupon coupon = couponService.getCouponById(couponId);
 
             List<Ticket> tickets=new ArrayList<>();
@@ -220,9 +228,13 @@ public class TicketServiceImpl implements TicketService {
                 tickets.add(ticketMapper.selectTicketById(i));
             }
             int movieId=tickets.get(0).getScheduleId();
+            int userId=userId=tickets.get(0).getUserId();
+            VIPCard vipCard=vipServiceForBl.selectCardByUserId(userId);
             List<TicketVO> ticketVOS=new ArrayList<>();
             Timestamp timestamp=tickets.get(0).getTime();
             double total=0;
+
+
 
             for(Ticket t: tickets){
                 int scheduleId=t.getScheduleId();
@@ -230,7 +242,7 @@ public class TicketServiceImpl implements TicketService {
                 double fare=schedule.getFare();
 
                 t.setState(1);
-                ticketMapper.updateTicketState(t.getId(),1);   //--> 不缺定是否要改变ticket的状态
+                ticketMapper.updateTicketState(t.getId(),1);
 
                 TicketVO ticketVO=t.getVO();
                 ticketVOS.add(ticketVO);
@@ -242,7 +254,12 @@ public class TicketServiceImpl implements TicketService {
 
             List<Coupon> couponsToGive=new ArrayList<>();
             for(Activity i:activities){
-                couponsToGive.add(i.getCoupon());
+
+                if(!couponService.existCouponUser(i.getCoupon().getId(),userId)){
+                    //System.out.println(couponId+" "+userId);
+                    ticketMapper.addCoupon(i.getCoupon().getId(),userId);
+                    couponsToGive.add(i.getCoupon());
+                }
             }
             ticketWithCouponVO.setCoupons(couponsToGive);
             ticketWithCouponVO.setTicketVOList(ticketVOS);
@@ -254,6 +271,7 @@ public class TicketServiceImpl implements TicketService {
                     vipCard.setBalance(vipCard.getBalance()-Payment);
                     ticketMapper.VIPPay(userId,Payment);//会员卡扣费
                     //System.out.println("会员卡扣费成功");
+                    couponService.deleteCoupon(couponId,userId);
                     return ResponseVO.buildSuccess(ticketWithCouponVO);
                 }
                 else{

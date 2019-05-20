@@ -1,9 +1,11 @@
 package com.example.cinema.data.sales;
 
+import com.example.cinema.po.Coupon;
 import com.example.cinema.po.Ticket;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -33,5 +35,7 @@ public interface TicketMapper {
     void cleanExpiredTicket();
 
     void VIPPay(@Param("userId")int userId,@Param("toPay")double toPay);
+
+    void addCoupon(@Param("couponId") int couponId, @Param("userId") int userId);
 }
 
