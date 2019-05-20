@@ -148,13 +148,53 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public ResponseVO getTicketByUser(int userId) {
-        try {
-            return ResponseVO.buildSuccess(ticketMapper.selectTicketByUser(userId) );
-        }catch (Exception e){
-            e.printStackTrace();
-            return ResponseVO.buildFailure("失败!");
+    	try {
+    		/*List<Ticket> tickets = ticketMapper.selectTicketByUser(userId);
+    		Map<Integer, TicketForm> ticketForms = new HashMap<Integer, TicketForm>();
+    		tickets.stream().forEach(ticket -> {
+    			int scheduleId = ticket.getScheduleId();
+    			if(ticketForms.containsKey(scheduleId)) {
+    				TicketForm ticketForm = ticketForms.get(scheduleId);
+    				ticketForm.addSeat(ticket.getColumnIndex(), ticket.getRowIndex());
+    			}
+    			else {
+    				ScheduleItem scheduleItem = scheduleService.getScheduleItemById(scheduleId);
+    				TicketForm ticketForm = new TicketForm(userId, scheduleId, scheduleItem);
+    				Movie movie = movieService.getMovieById(scheduleItem.getMovieId());
+    				ticketForm.setPosterUrl(movie.getPosterUrl());
+    				ticketForm.addSeat(ticket.getColumnIndex(), ticket.getRowIndex());
+    				ticketForm.setState(ticket.getState());
+    				ticketForms.put(scheduleId, ticketForm);
+    			}
+            });
+    		
+    		
+    		return ResponseVO.buildSuccess((List<TicketForm>) ticketForms.values()); */
+    		TicketForm ticketForm = new TicketForm();
+    		ticketForm.setUserId(userId);
+    		ticketForm.setScheduleId(22);
+    		ticketForm.setHallName("2号激光厅");
+    		ticketForm.setMovieName("夏目友人帐");
+    		ticketForm.setPosterUrl("http://n.sinaimg.cn/translate/640/w600h840/20190312/ampL-hufnxfm4278816.jpg");
+    		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    		Date date1 = format.parse("2019-05-15 19:00");
+    		Date date2 = format.parse("2019-05-15 21:00");
+    		ticketForm.setStartTime(date1);
+    		ticketForm.setEndTime(date2);
+    		ticketForm.setFare(45);
+    		
+    		ticketForm.addSeat(5, 5);
+    		ticketForm.addSeat(6, 5);
+    		ticketForm.setState(1);
+    		List<TicketForm> ticketForms = new ArrayList<TicketForm>();
+    		ticketForms.add(ticketForm);
+    		return ResponseVO.buildSuccess(ticketForms); 
         }
-    }//需要重写的
+    	catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("失败");
+        }
+    }
 
     @Override
     @Transactional
