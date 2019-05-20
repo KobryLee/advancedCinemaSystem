@@ -1,24 +1,34 @@
 package com.example.cinema.blImpl.sales;
 
-import com.example.cinema.bl.promotion.ActivityService;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.example.cinema.bl.sales.TicketService;
 import com.example.cinema.blImpl.management.hall.HallServiceForBl;
 import com.example.cinema.blImpl.management.schedule.ScheduleServiceForBl;
 import com.example.cinema.blImpl.promotion.ActivityServiceForBl;
 import com.example.cinema.blImpl.promotion.CouponServiceForBl;
 import com.example.cinema.blImpl.promotion.VIPServiceForBl;
-import com.example.cinema.data.promotion.ActivityMapper;
-import com.example.cinema.data.promotion.CouponMapper;
 import com.example.cinema.data.sales.TicketMapper;
-import com.example.cinema.po.*;
-import com.example.cinema.vo.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.sql.Timestamp;
+import com.example.cinema.po.Activity;
+import com.example.cinema.po.Coupon;
+import com.example.cinema.po.Hall;
+import com.example.cinema.po.ScheduleItem;
+import com.example.cinema.po.Ticket;
+import com.example.cinema.po.VIPCard;
+import com.example.cinema.vo.ResponseVO;
+import com.example.cinema.vo.ScheduleWithSeatVO;
+import com.example.cinema.vo.SeatForm;
+import com.example.cinema.vo.TicketForm;
+import com.example.cinema.vo.TicketVO;
+import com.example.cinema.vo.TicketWithCouponVO;
 /**
  * Created by liying on 2019/4/16.
  */
