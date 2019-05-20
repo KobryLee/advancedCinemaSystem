@@ -228,7 +228,7 @@ public class TicketServiceImpl implements TicketService {
                 tickets.add(ticketMapper.selectTicketById(i));
             }
             int movieId=tickets.get(0).getScheduleId();
-            int userId=userId=tickets.get(0).getUserId();
+            int userId=tickets.get(0).getUserId();
             VIPCard vipCard=vipServiceForBl.selectCardByUserId(userId);
             List<TicketVO> ticketVOS=new ArrayList<>();
             Timestamp timestamp=tickets.get(0).getTime();

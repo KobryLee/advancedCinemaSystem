@@ -85,9 +85,11 @@ public class CouponServiceImpl implements CouponService,CouponServiceForBl {
         try{
             List<Coupon> coupons=couponMapper.selectCouponByUser(userId);
             for (Coupon coupon: coupons){
-                System.out.println("1`"+couponId+" "+coupon.getId());
+                //System.out.println("size: "+coupons.size());
+                //System.out.println("userid"+userId);
+                //System.out.println("1`"+couponId+" "+coupon.getId());
                 if(couponId==coupon.getId()){
-                    System.out.println("2`"+couponId+" "+coupon.getId());
+                    //System.out.println("2`"+couponId+" "+coupon.getId());
                     return true;
                 }
             }
