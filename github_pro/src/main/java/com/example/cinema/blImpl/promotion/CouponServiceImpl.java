@@ -5,15 +5,17 @@ import com.example.cinema.data.promotion.CouponMapper;
 import com.example.cinema.po.Coupon;
 import com.example.cinema.vo.CouponForm;
 import com.example.cinema.vo.ResponseVO;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 
 /**
  * Created by liying on 2019/4/17.
  */
 @Service
-public class CouponServiceImpl implements CouponService,CouponServiceForBl {
+public class CouponServiceImpl implements CouponService, CouponServiceForBl {
 
     @Autowired
     CouponMapper couponMapper;
@@ -83,12 +85,12 @@ public class CouponServiceImpl implements CouponService,CouponServiceForBl {
     @Override
     public boolean existCouponUser(int couponId, int userId){
         try{
-            List<Coupon> coupons=couponMapper.selectCouponByUser(userId);
+            List<Coupon> coupons = couponMapper.selectCouponByUser(userId);
             for (Coupon coupon: coupons){
                 //System.out.println("size: "+coupons.size());
                 //System.out.println("userid"+userId);
                 //System.out.println("1`"+couponId+" "+coupon.getId());
-                if(couponId==coupon.getId()){
+                if(couponId == coupon.getId()){
                     //System.out.println("2`"+couponId+" "+coupon.getId());
                     return true;
                 }

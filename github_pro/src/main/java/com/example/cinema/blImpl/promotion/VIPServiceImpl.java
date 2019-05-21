@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
  * Created by liying on 2019/4/14.
  */
 @Service
-public class VIPServiceImpl implements VIPService,VIPServiceForBl {
+public class VIPServiceImpl implements VIPService, VIPServiceForBl {
     @Autowired
     VIPCardMapper vipCardMapper;
 
@@ -82,14 +82,15 @@ public class VIPServiceImpl implements VIPService,VIPServiceForBl {
         }
     }
 
-    @Override
-    public VIPCard selectCardByUserId(int userId){
-        try {
+	@Override
+	public VIPCard selectCardByUserId(int userId) {
+		try {
             return vipCardMapper.selectCardByUserId(userId);
 
         } catch (Exception e) {
             return null;
         }
-    }
+	}
+
 
 }

@@ -8,7 +8,6 @@ import com.example.cinema.vo.MoviePlacingRateVO;
 import com.example.cinema.vo.MovieScheduleTimeVO;
 import com.example.cinema.vo.MovieTotalBoxOfficeVO;
 import com.example.cinema.vo.ResponseVO;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -94,12 +93,12 @@ public class StatisticsServiceImpl implements StatisticsService {
             List<Hall> hallList = statisticsMapper.selectAllHall();
             int totalSeats = 0;
             int hallNumber = hallList.size();
-            for (Hall h: hallList
-                 ) {
+            for (Hall h: hallList) {
                 int row = h.getRow();
                 int col = h.getColumn();
                 totalSeats += row*col;
             }
+            
             //得到电影上座人数列表
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
             date = simpleDateFormat.parse(simpleDateFormat.format(date));

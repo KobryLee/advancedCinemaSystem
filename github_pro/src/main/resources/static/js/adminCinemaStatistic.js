@@ -176,7 +176,7 @@ $(document).ready(function() {
 			function (res) {
 			    var data = res.content || [];
 			    var tableData = data.map(function (item) {
-			        return item.moviePlacingRate;
+			        return item.placingRate;
 			    });
 			    var nameList = data.map(function (item) {
 			        return item.movieName;
@@ -195,7 +195,7 @@ $(document).ready(function() {
 			        },
 			        series: [{
 			            data: tableData,
-			            type: 'bar'
+			            type: 'line'
 			        }]
 			    };
 			    var scheduleRateChart = echarts.init($("#place-rate-container")[0]);
@@ -210,30 +210,49 @@ $(document).ready(function() {
     	getRequest(
 		'/statistics/popular/movie?days='+popularMovie_days+'&movieNum='+popularMovie_num,
 		function (res) {
-		    var data = res.content || [];
-		    var tableData = data.map(function (item) {
-		        return item.boxOffice;
-		    });
-		    var nameList = data.map(function (item) {
-		        return item.name;
-		    });
-		    var option = {
-		        title : {
-		            text: popularMovie_days+'天内，最火的'+popularMovie_num+"部电影",
-		            x:'center'
-		        },
-		        xAxis: {
-		            type: 'category',
-		            data: nameList
-		        },
-		        yAxis: {
-		            type: 'value'
-		        },
-		        series: [{
-		            data: tableData,
-		            type: 'bar'
-		        }]
-		    };
+			 var data = res.content || [];
+             var tableData = data.map(function (item) {
+                 return {
+                     value: item.boxOffice,
+                     name: item.name
+                 };
+             });
+             var nameList = data.map(function (item) {
+                 return item.name;
+             });
+             var option = {
+                 title: {
+                     text: popularMovie_days + '天内最受欢迎的' + popularMovie_num + '部电影',
+                     x: 'center'
+                 },
+                 tooltip: {
+                     trigger: 'item',
+                     formatter: "{a} <br/>{b} : {c} ({d}%)"
+                 },
+                 legend: {
+                     x: 'center',
+                     y: 'bottom',
+                     data: nameList
+                 },
+                 calculable: true,
+                 series: [
+                     {
+                         name: '最受欢迎的电影',
+                         type: 'pie',
+                         radius: [30, 110],
+                         //center : ['50%', '50%'],
+                         //roseType : 'area',
+                         data: tableData,
+                         itemStyle: {
+                             emphasis: {
+                                 shadowBlur: 10,
+                                 shadowOffsetX: 0,
+                                 shadowColor: 'rgba(30,144,255,0.5)'
+                             }
+                         }
+                     }
+                 ]
+            };
 		    var scheduleRateChart = echarts.init($("#popular-movie-container")[0]);
 		    scheduleRateChart.setOption(option);
 		},

@@ -6,8 +6,6 @@ import com.example.cinema.vo.ResponseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
-
 
 /**
  * Created by liying on 2019/4/20.
@@ -26,11 +24,6 @@ public class ActivityController {
     @GetMapping("/get")
     public ResponseVO getActivities(){
         return activityService.getActivities();
-    }
-
-    @GetMapping()
-    public ResponseVO getActivityByTime(@RequestBody Timestamp timestamp){
-        return activityService.getActivityByTime(timestamp);
     }
 
 

@@ -34,16 +34,15 @@ public class TicketVO {
     private String state;
 
     private Timestamp time;
+    
+    public TicketVO() {}
 
-    public Timestamp getTime() {
+	public Timestamp getTime() {
         return time;
     }
 
     public void setTime(Timestamp time) {
         this.time = time;
-    }
-
-    public TicketVO() {
     }
 
     public int getId() {

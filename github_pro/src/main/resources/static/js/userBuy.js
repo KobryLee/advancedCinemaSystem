@@ -16,6 +16,7 @@ $(document).ready(function () {
     function renderTicketList(list) {
     	$('.ticket-on-table').empty();
         var ticketDomStr = 
+            "<thead>" +
         	"<tr>" +
         	"<td><b>电影名称</b></td>" +
         	"<td><b>影厅名</b></td>" +
@@ -23,7 +24,8 @@ $(document).ready(function () {
    			"<td><b>放映时间</b></td>" +
    			"<td><b>预计结束时间</b></td>" +
    			"<td><b>状态</b></td>" +
-            "</tr>";
+            "</tr>" +
+            "</thead>";
         
         list.forEach(function (ticket) {
         	ticketDomStr +=
@@ -49,8 +51,8 @@ $(document).ready(function () {
     function getSeats(list) {
     	var res = "";
     	list.forEach(function (seat) {
-    		res += seat.rowIndex + "排"
-    		res += seat.columnIndex + "座";
+    		res += (seat.rowIndex+1) + "排"
+    		res += (seat.columnIndex+1) + "座";
     	});
     	return res;
     }

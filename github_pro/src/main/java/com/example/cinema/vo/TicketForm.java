@@ -51,12 +51,14 @@ public class TicketForm {
      */
     private int state;
     
+    public TicketForm() {}
+    
     public TicketForm(int userId, int scheduleId, ScheduleItem scheduleItem) {
 		this.userId = userId;
 		this.scheduleId = scheduleId;
 		seats = new ArrayList<SeatForm>();
-		this.hallName = scheduleItem.getHallName();
 		this.movieName = scheduleItem.getMovieName();
+		this.hallName = scheduleItem.getHallName();
 		this.startTime = scheduleItem.getStartTime();
 		this.endTime = scheduleItem.getEndTime();
 	}
