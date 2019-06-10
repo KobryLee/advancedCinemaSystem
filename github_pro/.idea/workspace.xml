@@ -2,18 +2,156 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8da3518-13fb-454f-8c96-61598451a612" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/ActivityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/ActivityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/sales/TicketServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/sales/TicketServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataImpl/promotion/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataImpl/promotion/ActivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/cinema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/cinema.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/userMovieBuy.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/userMovieBuy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/CinemaApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/CinemaApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/management/HallService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/management/HallService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/management/MovieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/management/MovieService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/management/ScheduleService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/management/ScheduleService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/promotion/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/promotion/ActivityService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/promotion/CouponService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/promotion/CouponService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/promotion/VIPService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/promotion/VIPService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/sales/TicketService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/sales/TicketService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/statistics/MovieLikeService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/statistics/MovieLikeService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/statistics/StatisticsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/statistics/StatisticsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/user/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/user/AccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/hall/HallServiceForBl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/hall/HallServiceForBl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/hall/HallServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/hall/HallServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/movie/MovieServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/movie/MovieServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/schedule/MovieServiceForBl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/schedule/MovieServiceForBl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/schedule/ScheduleServiceForBl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/schedule/ScheduleServiceForBl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/schedule/ScheduleServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/schedule/ScheduleServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/ActivityServiceForBl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/ActivityServiceForBl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/ActivityServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/ActivityServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/CouponServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/CouponServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/VIPServiceForBl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/VIPServiceForBl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/VIPServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/promotion/VIPServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/statistics/MovieLikeServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/statistics/MovieLikeServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/statistics/StatisticsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/statistics/StatisticsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/user/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/user/AccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/config/InterceptorConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/config/InterceptorConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/management/HallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/management/HallController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/management/MovieController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/management/MovieController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/management/ScheduleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/management/ScheduleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/promotion/ActivityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/promotion/ActivityController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/promotion/CouponController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/promotion/CouponController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/promotion/VIPCardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/promotion/VIPCardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/router/ViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/router/ViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/sales/TicketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/sales/TicketController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/statistics/StatisticsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/statistics/StatisticsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/user/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/user/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/management/HallMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/management/HallMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/management/MovieMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/management/MovieMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/management/ScheduleMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/management/ScheduleMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/promotion/ActivityMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/promotion/ActivityMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/promotion/CouponMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/promotion/CouponMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/promotion/VIPCardMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/promotion/VIPCardMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/sales/TicketMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/sales/TicketMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/statistics/MovieLikeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/statistics/MovieLikeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/statistics/StatisticsMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/statistics/StatisticsMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/user/AccountMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/user/AccountMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/interceptor/SessionInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/interceptor/SessionInterceptor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Activity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Activity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/AudiencePrice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/AudiencePrice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Coupon.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Coupon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/DateLike.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/DateLike.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Hall.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Hall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/MoviePlacingAudience.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/MoviePlacingAudience.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/MovieScheduleTime.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/MovieScheduleTime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/MovieTotalBoxOffice.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/MovieTotalBoxOffice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/ScheduleItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/ScheduleItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/Ticket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/po/VIPCard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/po/VIPCard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ActivityForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ActivityForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ActivityVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ActivityVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/AudiencePriceVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/AudiencePriceVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/CouponForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/CouponForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/DateLikeVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/DateLikeVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/HallVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/HallVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieBatchOffForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieBatchOffForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MoviePlacingRateVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MoviePlacingRateVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieScheduleTimeVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieScheduleTimeVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieTotalBoxOfficeVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieTotalBoxOfficeVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/MovieVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ResponseVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ResponseVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleBatchDeleteForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleBatchDeleteForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleItemVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleItemVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleViewForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleViewForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleWithSeatVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/ScheduleWithSeatVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/TicketVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/TicketVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/TicketWithCouponVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/TicketWithCouponVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/TicketWithScheduleVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/TicketWithScheduleVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/UserForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/UserForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/UserVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/UserVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/VIPCardForm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/VIPCardForm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/VIPInfoVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/vo/VIPInfoVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/management/HallMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/management/HallMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/management/MovieMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/management/MovieMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/management/ScheduleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/management/ScheduleMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/promotion/ActivityMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/promotion/ActivityMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/promotion/CouponMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/promotion/CouponMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/promotion/VIPCardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/promotion/VIPCardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/sales/TicketMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/sales/TicketMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/statistics/MovieLikeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/statistics/MovieLikeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/statistics/StatisticsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/statistics/StatisticsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/user/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/user/AccountMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/adminPromotion.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/adminPromotion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/adminSchedule.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/adminSchedule.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/adminStatistic.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/adminStatistic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/cinemaHall.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/cinemaHall.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/common.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/font-awesome.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/font-awesome.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/movieDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/movieDetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/movieList.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/movieList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/static/css/userBuy.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/userBuy.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/userHome.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/userHome.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/userMember.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/userMember.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/userMovie.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/userMovie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/userMovieBuy.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/userMovieBuy.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/css/userMovieDetail.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/css/userMovieDetail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/font/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/font/fontawesome-webfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/adminCinemaManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/adminCinemaManage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/adminCinemaStatistic.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/adminCinemaStatistic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/adminMovieManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/adminMovieManage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/adminPromotionManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/adminPromotionManage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/adminScheduleManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/adminScheduleManage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/echarts.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/echarts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/jquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/movieDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/movieDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/signUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/signUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/userBuy.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/userBuy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/userMember.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/userMember.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/userMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/userMovie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/userMovieBuy.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/userMovieBuy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/js/userMovieDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/userMovieDetail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminCinemaManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/adminCinemaManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminCinemaStatistic.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/adminCinemaStatistic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminMovieDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/adminMovieDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminMovieManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/adminMovieManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminPromotionManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/adminPromotionManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminScheduleManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/adminScheduleManage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/signUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/signUp.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/userBuy.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userBuy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/userHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userHome.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/userMember.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userMember.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/userMovie.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userMovie.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/userMovieBuy.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userMovieBuy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/userMovieDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/userMovieDetail.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,53 +161,46 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="cinema" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="cinema" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="cinema" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="cinema: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="testRunner" value="GRADLE" />
-    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/sales/TicketServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="230" column="50" lean-forward="true" selection-start-line="230" selection-start-column="50" selection-end-line="230" selection-end-column="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/ActivityServiceForBl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="10" column="40" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/ActivityServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="882">
-              <caret line="74" column="78" selection-start-line="74" selection-start-column="78" selection-end-line="74" selection-end-column="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceForBl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="82" column="13" lean-forward="true" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
+            <state relative-caret-position="658">
+              <caret line="226" column="16" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,50 +209,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/dataImpl/promotion/ActivityMapper.xml">
+        <entry file="file://$PROJECT_DIR$/sql/cinema.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="86" column="62" selection-start-line="86" selection-start-column="62" selection-end-line="86" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/data/promotion/CouponMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="225">
+              <caret line="15" column="56" lean-forward="true" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userMovieBuy.js">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/po/RefundStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="389" column="1" selection-start-line="389" selection-start-column="1" selection-end-line="389" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/dataImpl/promotion/CouponMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+            <state relative-caret-position="555">
+              <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
               <folding>
-                <element signature="e#1114#1118#0" expanded="true" />
-                <element signature="e#1140#1144#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/data/sales/TicketMapper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/controller/sales/TicketController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            <state relative-caret-position="135">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -134,7 +246,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/cinema/data/sales/TicketMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceForBl.java" />
         <option value="$PROJECT_DIR$/src/main/resources/dataImpl/sales/TicketMapper.xml" />
@@ -143,7 +254,9 @@
         <option value="$PROJECT_DIR$/src/main/resources/dataImpl/promotion/ActivityMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/sales/TicketServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/userMovieBuy.js" />
+        <option value="$PROJECT_DIR$/sql/cinema.sql" />
       </list>
     </option>
   </component>
@@ -153,9 +266,10 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1245" />
+    <option name="height" value="827" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -163,17 +277,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
               <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
@@ -213,7 +323,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cinema" type="462c0819:PsiDirectoryNode" />
-              <item name="blImpl" type="462c0819:PsiDirectoryNode" />
+              <item name="bl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
@@ -223,7 +333,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cinema" type="462c0819:PsiDirectoryNode" />
               <item name="blImpl" type="462c0819:PsiDirectoryNode" />
-              <item name="promotion" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
@@ -232,7 +341,16 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cinema" type="462c0819:PsiDirectoryNode" />
-              <item name="blImpl" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
+              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cinema" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="sales" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -242,17 +360,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cinema" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cinema" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="sales" type="462c0819:PsiDirectoryNode" />
+              <item name="po" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
@@ -260,69 +368,17 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="dataImpl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="dataImpl" type="462c0819:PsiDirectoryNode" />
-              <item name="promotion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="dataImpl" type="462c0819:PsiDirectoryNode" />
-              <item name="sales" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="dataImpl" type="462c0819:PsiDirectoryNode" />
-              <item name="statistics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
-              <item name="github_pro" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -331,6 +387,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="database.console.LAST_STATE" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -370,14 +428,21 @@
       <option name="presentableId" value="Default" />
       <updated>1558347254295</updated>
       <workItem from="1558347257154" duration="8354000" />
+      <workItem from="1558438204362" duration="154000" />
+      <workItem from="1558490851639" duration="409000" />
+      <workItem from="1559032992835" duration="996000" />
+      <workItem from="1559645978449" duration="378000" />
+      <workItem from="1559724387471" duration="677000" />
+      <workItem from="1560145759042" duration="1007000" />
+      <workItem from="1560146928764" duration="1153000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8354000" />
+    <option name="totallyTimeSpent" value="13133000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="0" y="23" width="1245" height="827" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
@@ -386,37 +451,42 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Web" order="4" side_tool="true" />
       <window_info id="Designer" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.22317597" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.3150457" />
       <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="3" weight="0.32650602" />
+      <window_info anchor="bottom" id="Messages" order="3" weight="0.32517007" />
       <window_info anchor="bottom" id="Java Enterprise" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="5" />
       <window_info anchor="bottom" id="Version Control" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Message" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
-      <window_info anchor="bottom" id="Run" order="10" visible="true" weight="0.27349398" />
+      <window_info anchor="bottom" id="Run" order="10" weight="0.2734694" />
       <window_info anchor="bottom" id="Debug" order="11" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="13" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="14" />
+      <window_info anchor="bottom" id="Database Console" order="15" visible="true" weight="0.3292517" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Database" order="2" />
+      <window_info anchor="right" id="Database" order="2" weight="0.113018595" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Bean Validation" order="5" />
       <window_info anchor="right" id="Maven" order="6" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.24930362" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/.name">
@@ -424,13 +494,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cinema.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="8" lean-forward="true" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/po/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -474,6 +537,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/ActivityServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="65" column="78" selection-start-line="65" selection-start-column="78" selection-end-line="65" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceForBl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -481,23 +558,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/dataImpl/promotion/ActivityMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="658">
           <caret line="86" column="62" selection-start-line="86" selection-start-column="62" selection-end-line="86" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/data/promotion/CouponMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        <state relative-caret-position="120">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/request.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/controller/promotion/CouponController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/dataImpl/promotion/CouponMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
+        <state relative-caret-position="60">
           <caret line="4" column="53" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
           <folding>
             <element signature="e#1114#1118#0" expanded="true" />
@@ -506,34 +603,96 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/ActivityServiceImpl.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2c9cba92-42b8-4b79-bafa-b57c9bf9f945/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://2c9cba92-42b8-4b79-bafa-b57c9bf9f945/collation/armscii8_general_ci" />
+    <entry file="das://2c9cba92-42b8-4b79-bafa-b57c9bf9f945/collation/big5_bin" />
+    <entry file="das://2c9cba92-42b8-4b79-bafa-b57c9bf9f945/collation/binary" />
+    <entry file="das://2c9cba92-42b8-4b79-bafa-b57c9bf9f945/collation/cp1250_polish_ci" />
+    <entry file="das://2c9cba92-42b8-4b79-bafa-b57c9bf9f945/collation/utf8mb4_vietnamese_ci" />
+    <entry file="das://2c9cba92-42b8-4b79-bafa-b57c9bf9f945/schema/cinema/table/activity" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/signUp.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/userBuy.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/userMovieBuy.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/userBuy.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userBuy.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/CinemaApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="882">
-          <caret line="74" column="78" selection-start-line="74" selection-start-column="78" selection-end-line="74" selection-end-column="78" />
+        <state relative-caret-position="90">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/bl/promotion/ActivityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/controller/promotion/ActivityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userMovieBuy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/vo/RefundForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/controller/sales/TicketController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/sales/TicketServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="230" column="50" lean-forward="true" selection-start-line="230" selection-start-column="50" selection-end-line="230" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/promotion/CouponServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="82" column="13" lean-forward="true" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
+        <state relative-caret-position="658">
+          <caret line="226" column="16" selection-start-line="226" selection-start-column="16" selection-end-line="226" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/js/userMovieBuy.js">
+    <entry file="file://$PROJECT_DIR$/sql/cinema.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="389" column="1" selection-start-line="389" selection-start-column="1" selection-end-line="389" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="15" column="56" lean-forward="true" selection-start-line="15" selection-start-column="56" selection-end-line="15" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/po/RefundStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

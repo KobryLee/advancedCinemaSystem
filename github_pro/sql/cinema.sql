@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `activity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `activity` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `activity_name` varchar(45) NOT NULL,
-  `a_description` varchar(255) NOT NULL,
-  `end_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `coupon_id` int(11) DEFAULT NULL,
-  `start_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+                          `id` int(11) NOT NULL AUTO_INCREMENT,
+                          `activity_name` varchar(45) NOT NULL,
+                          `a_description` varchar(255) NOT NULL,
+                          `end_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                          `coupon_id` int(11) DEFAULT NULL,
+                          `start_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                          PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -53,8 +53,8 @@ DROP TABLE IF EXISTS `activity_movie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `activity_movie` (
-  `activity_id` int(11) DEFAULT NULL,
-  `movie_id` int(11) DEFAULT NULL
+                                `activity_id` int(11) DEFAULT NULL,
+                                `movie_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -76,14 +76,14 @@ DROP TABLE IF EXISTS `coupon`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `coupon` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `description` varchar(255) DEFAULT NULL,
-  `name` varchar(45) DEFAULT NULL,
-  `target_amount` float DEFAULT NULL,
-  `discount_amount` float DEFAULT NULL,
-  `start_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `end_time` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                        `id` int(11) NOT NULL AUTO_INCREMENT,
+                        `description` varchar(255) DEFAULT NULL,
+                        `name` varchar(45) DEFAULT NULL,
+                        `target_amount` float DEFAULT NULL,
+                        `discount_amount` float DEFAULT NULL,
+                        `start_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+                        `end_time` timestamp NULL DEFAULT NULL,
+                        PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -105,8 +105,8 @@ DROP TABLE IF EXISTS `coupon_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `coupon_user` (
-  `coupon_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
+                             `coupon_id` int(11) NOT NULL,
+                             `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -128,11 +128,11 @@ DROP TABLE IF EXISTS `hall`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `hall` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
-  `column` int(11) DEFAULT NULL,
-  `row` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `name` varchar(255) DEFAULT NULL,
+                      `column` int(11) DEFAULT NULL,
+                      `row` int(11) DEFAULT NULL,
+                      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -154,20 +154,20 @@ DROP TABLE IF EXISTS `movie`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `movie` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `poster_url` varchar(255) DEFAULT NULL,
-  `director` varchar(255) DEFAULT NULL,
-  `screen_writer` varchar(255) DEFAULT NULL,
-  `starring` varchar(255) DEFAULT NULL,
-  `type` varchar(255) DEFAULT NULL,
-  `country` varchar(255) DEFAULT NULL,
-  `language` varchar(255) DEFAULT NULL,
-  `length` int(11) NOT NULL,
-  `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `name` varchar(255) NOT NULL,
-  `description` text,
-  `status` int(11) DEFAULT '0',
-  PRIMARY KEY (`id`)
+                       `id` int(11) NOT NULL AUTO_INCREMENT,
+                       `poster_url` varchar(255) DEFAULT NULL,
+                       `director` varchar(255) DEFAULT NULL,
+                       `screen_writer` varchar(255) DEFAULT NULL,
+                       `starring` varchar(255) DEFAULT NULL,
+                       `type` varchar(255) DEFAULT NULL,
+                       `country` varchar(255) DEFAULT NULL,
+                       `language` varchar(255) DEFAULT NULL,
+                       `length` int(11) NOT NULL,
+                       `start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                       `name` varchar(255) NOT NULL,
+                       `description` text,
+                       `status` int(11) DEFAULT '0',
+                       PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -189,10 +189,10 @@ DROP TABLE IF EXISTS `movie_like`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `movie_like` (
-  `movie_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `like_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`movie_id`,`user_id`)
+                            `movie_id` int(11) NOT NULL,
+                            `user_id` int(11) NOT NULL,
+                            `like_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                            PRIMARY KEY (`movie_id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -214,13 +214,13 @@ DROP TABLE IF EXISTS `schedule`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `schedule` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hall_id` int(11) NOT NULL,
-  `movie_id` int(11) NOT NULL,
-  `start_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `end_time` timestamp NOT NULL,
-  `fare` double NOT NULL,
-  PRIMARY KEY (`id`)
+                          `id` int(11) NOT NULL AUTO_INCREMENT,
+                          `hall_id` int(11) NOT NULL,
+                          `movie_id` int(11) NOT NULL,
+                          `start_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP,
+                          `end_time` timestamp NOT NULL,
+                          `fare` double NOT NULL,
+                          PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -242,14 +242,14 @@ DROP TABLE IF EXISTS `ticket`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ticket` (
-  `user_id` int(11) DEFAULT NULL,
-  `schedule_id` int(11) DEFAULT NULL,
-  `column_index` int(11) DEFAULT NULL,
-  `row_index` int(11) DEFAULT NULL,
-  `state` tinyint(4) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+                        `user_id` int(11) DEFAULT NULL,
+                        `schedule_id` int(11) DEFAULT NULL,
+                        `column_index` int(11) DEFAULT NULL,
+                        `row_index` int(11) DEFAULT NULL,
+                        `state` tinyint(4) DEFAULT NULL,
+                        `id` int(11) NOT NULL AUTO_INCREMENT,
+                        `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                        PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -259,7 +259,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (12,50,5,3,2,1,'2019-04-23 13:50:52'),(12,50,5,3,2,2,'2019-04-23 13:50:52'),(12,50,5,3,2,3,'2019-04-23 13:50:52'),(12,50,5,3,2,4,'2019-04-23 13:50:52'),(12,50,5,3,0,5,'2019-04-23 13:50:52'),(15,50,4,3,0,6,'2019-04-23 13:50:52'),(15,58,0,0,1,15,'2019-04-23 13:50:52'),(15,58,2,0,1,16,'2019-04-23 13:50:52'),(15,58,1,1,1,17,'2019-04-23 13:50:52'),(15,58,11,7,1,18,'2019-04-23 13:50:52'),(13,50,4,2,1,19,'2019-04-23 13:50:52'),(15,66,3,2,1,20,'2019-04-23 13:50:52'),(12,50,1,1,1,21,'2019-04-23 13:50:52'),(13,50,4,3,1,22,'2019-04-23 13:50:52'),(15,50,2,2,1,23,'2019-04-23 13:50:52'),(15,58,0,7,0,24,'2019-04-23 13:50:52'),(15,58,5,4,0,25,'2019-04-23 13:50:52'),(15,58,6,4,0,26,'2019-04-23 13:50:52'),(15,58,6,2,0,27,'2019-04-23 13:50:52'),(15,58,7,2,0,28,'2019-04-23 13:50:52'),(15,58,0,4,0,29,'2019-04-23 13:50:52'),(15,58,0,3,0,30,'2019-04-23 13:50:52'),(15,58,0,2,0,31,'2019-04-23 13:50:52'),(15,58,10,0,0,32,'2019-04-23 13:50:52'),(15,58,11,0,0,33,'2019-04-23 13:50:52'),(15,58,8,0,0,34,'2019-04-23 13:50:52'),(15,58,9,0,0,35,'2019-04-23 13:50:52'),(15,58,5,0,0,36,'2019-04-23 13:50:52'),(15,58,6,0,0,37,'2019-04-23 13:50:52'),(15,58,6,7,0,38,'2019-04-23 13:50:52'),(15,58,7,7,0,39,'2019-04-23 13:50:52'),(15,58,8,7,0,40,'2019-04-23 13:50:52'),(15,58,11,4,0,41,'2019-04-23 13:50:52'),(15,58,11,5,0,42,'2019-04-23 13:50:52'),(15,58,9,6,0,43,'2019-04-23 13:50:52'),(15,58,10,6,0,44,'2019-04-23 13:50:52'),(15,58,11,6,0,45,'2019-04-23 13:50:52'),(15,58,3,5,1,46,'2019-04-23 13:50:52'),(15,58,4,5,1,47,'2019-04-23 13:50:52'),(15,58,5,5,1,48,'2019-04-23 13:50:52'),(15,58,11,2,0,49,'2019-04-23 13:50:52'),(15,58,11,3,0,50,'2019-04-23 13:50:52'),(15,58,9,4,0,51,'2019-04-23 13:50:52'),(15,58,9,3,1,52,'2019-04-23 13:50:52'),(15,58,10,3,1,53,'2019-04-23 13:50:52'),(15,65,7,4,0,54,'2019-04-23 13:50:52'),(15,65,8,4,0,55,'2019-04-23 13:50:52'),(15,65,9,4,0,56,'2019-04-23 13:50:52'),(15,65,7,3,0,57,'2019-04-23 13:50:52'),(15,65,8,3,0,58,'2019-04-23 13:50:52'),(15,65,9,3,0,59,'2019-04-23 13:50:52'),(15,65,0,0,1,60,'2019-04-23 13:50:52'),(15,65,0,1,1,61,'2019-04-23 13:50:52'),(15,65,0,2,1,62,'2019-04-23 13:50:52');
+INSERT INTO `ticket` VALUES (12,50,5,3,2,1,'2019-04-23 13:50:52');
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,12 +271,12 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `user_id_uindex` (`id`),
-  UNIQUE KEY `user_username_uindex` (`username`)
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `username` varchar(50) NOT NULL,
+                      `password` varchar(50) NOT NULL,
+                      PRIMARY KEY (`id`),
+                      UNIQUE KEY `user_id_uindex` (`id`),
+                      UNIQUE KEY `user_username_uindex` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -298,9 +298,9 @@ DROP TABLE IF EXISTS `view`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `view` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `day` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+                      `id` int(11) NOT NULL AUTO_INCREMENT,
+                      `day` int(11) NOT NULL,
+                      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -322,12 +322,12 @@ DROP TABLE IF EXISTS `vip_card`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vip_card` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `balance` float DEFAULT NULL,
-  `join_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `vip_card_user_id_uindex` (`user_id`)
+                          `id` int(11) NOT NULL AUTO_INCREMENT,
+                          `user_id` int(11) DEFAULT NULL,
+                          `balance` float DEFAULT NULL,
+                          `join_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+                          PRIMARY KEY (`id`),
+                          UNIQUE KEY `vip_card_user_id_uindex` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -339,6 +339,35 @@ LOCK TABLES `vip_card` WRITE;
 /*!40000 ALTER TABLE `vip_card` DISABLE KEYS */;
 INSERT INTO `vip_card` VALUES (1,15,375,'2019-04-21 13:54:38'),(2,12,660,'2019-04-17 18:47:42');
 /*!40000 ALTER TABLE `vip_card` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ticket`
+--
+
+DROP TABLE IF EXISTS `refund`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `refund` (
+                        `id` int(11)  NOT NULL AUTO_INCREMENT,
+                        `name` varchar(255) NOT NULL,
+                        `is_vip` tinyint(4) NOT NULL,
+                        `false_time` VARCHAR(255) DEFAULT NULL,
+                        `start_time` VARCHAR(255) NOT NULL,
+                        `end_time` VARCHAR(255) NOT NULL,
+                        `penalty` DOUBLE NOT NULL ,
+                        PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `refund`
+--
+
+LOCK TABLES `refund` WRITE;
+/*!40000 ALTER TABLE `refund` DISABLE KEYS */;
+INSERT INTO `refund` VALUES (1,'退票策略1',1,'00:15','05:00','06:00',0.10),(2,'退票策略1',1,'00:15','03:00','05:00',0.30),(3,'退票策略1',1,'00:15','01:00','03:00',0.50),(4,'退票策略1',1,'00:15','00:15','01:00',0.80);
+/*!40000 ALTER TABLE `refund` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

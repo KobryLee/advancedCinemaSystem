@@ -75,7 +75,7 @@
 
     </select>
 
-    <select id="selectByTime" resultMap="Activity">
+	<select id="selectByTime" resultMap="Activity">
         select
             *
         from
@@ -86,7 +86,6 @@
                 a.id=am.activity_id
         where #{timestamp} between a.start_time and a.end_time and movie_id is null
     </select>
-
 
     <resultMap id="Activity" type="com.example.cinema.po.Activity">
         <result column="a_description" property="description"></result>

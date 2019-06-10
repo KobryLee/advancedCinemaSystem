@@ -12,9 +12,7 @@ var total;
 
 $(document).ready(function () {
     scheduleId = parseInt(window.location.href.split('?')[1].split('&')[1].split('=')[1]);
-
     getInfo();
-
     function getInfo() {
         getRequest(
             '/ticket/get/occupiedSeats?scheduleId=' + scheduleId,
