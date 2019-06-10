@@ -327,8 +327,14 @@ function payConfirmClick() {
     else{
         if (validateForm()) {
             if ($('#userBuy-cardNum').val() === "123123123" && $('#userBuy-cardPwd').val() === "123123") {
+                if(order.couponId.length==0){
+                    var temp = '/ticket/buy?'+"ticketId="+order.ticketId+"&couponId=-1"
+                }
+                else{
+                    var temp = '/ticket/buy?'+"ticketId="+order.ticketId+"&couponId="+order.couponId
+                }
                 postRequest(
-                    '/ticket/buy?'+"ticketId="+order.ticketId+"&couponId="+order.couponId,
+                    temp,
                     {},
                     function(res){
                         console.log(order.ticketId+"&couponId="+order.couponId);

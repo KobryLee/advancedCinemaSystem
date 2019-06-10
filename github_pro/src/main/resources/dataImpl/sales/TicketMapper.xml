@@ -4,17 +4,17 @@
 
     <insert id="insertTicket" parameterType="com.example.cinema.po.Ticket"
             useGeneratedKeys="true" keyProperty="id">
-        insert into ticket(user_id, schedule_id, column_index, row_index,state)
-        values(#{userId}, #{scheduleId}, #{columnIndex}, #{rowIndex}, #{state})
+        insert into ticket(user_id, schedule_id, column_index, row_index, state, paymentMode)
+        values(#{userId}, #{scheduleId}, #{columnIndex}, #{rowIndex}, #{state},#{paymentMode})
     </insert>
     
     <insert id="insertTickets" parameterType="java.util.List"
             useGeneratedKeys="true" keyProperty="id">
-        insert into ticket(user_id, schedule_id, column_index, row_index, state)
+        insert into ticket(user_id, schedule_id, column_index, row_index, state, paymentMode)
         values
         <foreach collection="list" item="item" index="index"
                  separator=",">
-            (#{item.userId}, #{item.scheduleId}, #{item.columnIndex}, #{item.rowIndex}, #{item.state})
+            (#{item.userId}, #{item.scheduleId}, #{item.columnIndex}, #{item.rowIndex}, #{item.state}, #{item.paymentMode})
         </foreach>
 
     </insert>
@@ -45,6 +45,10 @@
         update ticket set state = #{state} where id=#{ticketId}
     </update>
 
+    <update id="updatePaymentMode">
+        update ticket set paymentMode=#{paymentMode} where id=#{ticketId}
+    </update>
+
     <delete id="deleteTicket">
         delete from ticket where id=#{ticketId}
     </delete>
@@ -65,6 +69,10 @@
     
     <update id="VIPPay">
         update vip_card set balance=(balance-#{toPay}) where #{userId}=user_id
+    </update>
+
+    <update id="VIPRefund">
+        update vip_card set balance=(balance+#{refund}) where #{userId}=user_id
     </update>
 
 </mapper>

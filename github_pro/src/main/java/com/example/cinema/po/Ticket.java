@@ -36,6 +36,11 @@ public class Ticket {
      * 0：未完成 1：已完成 2:已失效
      */
     private int state;
+    /**
+     * 票的支付方式：
+     * 0：银行卡 1：会员卡 -1:尚未支付
+     */
+    private int paymentMode;
 
     private Timestamp time;
 
@@ -150,5 +155,13 @@ public class Ticket {
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public int getPaymentMode(){
+        return paymentMode;
+    }
+
+    public void setPaymentMode(int paymentMode){
+        this.paymentMode=paymentMode;
     }
 }

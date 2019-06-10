@@ -21,6 +21,8 @@ public interface TicketMapper {
 
     void updateTicketState(@Param("ticketId") int ticketId, @Param("state") int state);
 
+    void updatePaymentMode(@Param("ticketId") int ticketId, @Param("paymentMode") int paymentMode);
+
     List<Ticket> selectTicketsBySchedule(int scheduleId);
 
     Ticket selectTicketByScheduleIdAndSeat(@Param("scheduleId") int scheduleId, @Param("column") int columnIndex, @Param("row") int rowIndex);
@@ -35,5 +37,7 @@ public interface TicketMapper {
 	void addCoupon(int id, int userId);
 	
 	void VIPPay(int userId, double toPay);
+
+	void VIPRefund(int userId, double refund);
 }
 

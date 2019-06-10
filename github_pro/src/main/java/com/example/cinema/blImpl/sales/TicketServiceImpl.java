@@ -56,7 +56,7 @@ public class TicketServiceImpl implements TicketService {
                 ticket.setColumnIndex(s.getColumnIndex());
                 ticket.setRowIndex(s.getRowIndex());
                 ticket.setState(0);
-                
+                ticket.setPaymentMode(-1);
                 ticketMapper.insertTicket(ticket);
 
                 tickeIdList.add(ticket.getId());
@@ -79,7 +79,11 @@ public class TicketServiceImpl implements TicketService {
                 tickets.add(ticketMapper.selectTicketById(i));
             }
             List<TicketVO> ticketVOs = new ArrayList<TicketVO>();
-            Coupon coupon = couponService.getCouponById(couponId);
+            Coupon coupon=new Coupon();
+            if(couponId==-1){
+                coupon = couponService.getCouponById(couponId);
+            }
+
             int movieId = tickets.get(0).getScheduleId(); //通过ticket寻找movieId，由于多张tickets都只对应1部电影，因此只要取第一张ticket
             int userId = tickets.get(0).getUserId();
 
@@ -92,6 +96,7 @@ public class TicketServiceImpl implements TicketService {
                 double fare = schedule.getFare();
 
                 ticketMapper.updateTicketState(t.getId(), 1);   // 改变ticket状态为已购买（"1"）
+                ticketMapper.updatePaymentMode(t.getId(),0);  //改变ticket的购买方式为银行卡支付（0）
                 t.setState(1);
 
                 TicketVO ticketVO = t.getVO();
@@ -101,6 +106,7 @@ public class TicketServiceImpl implements TicketService {
 
             List<Activity> activities = activityService.selectActivityByTimeAndMovie(timestamp, movieId);
             //根据时间和电影ID在数据库中寻找满足条件的活动
+
             List<Coupon> couponsToGive=new ArrayList<Coupon>();  //构造根据活动赠送的优惠券列表
             for(Activity i:activities){
 
@@ -118,10 +124,13 @@ public class TicketServiceImpl implements TicketService {
             ticketWithCouponVO.setTotal(total);
             //构造ticketWithCouponVO作为ResponseVO中的content
 
-            if(coupon.getTargetAmount()<=total){
+            if(couponId!=-1 && coupon.getTargetAmount()<=total){
                 couponService.deleteCoupon(couponId,userId);
                 return ResponseVO.buildSuccess(ticketWithCouponVO);
 
+            }
+            else if(couponId==-1){
+                return ResponseVO.buildSuccess(ticketWithCouponVO);
             }//校验优惠券（默认前端已经做好根据时间筛选优惠券的操作，即这里选择的优惠券是在优惠期限以内的）
             return ResponseVO.buildFailure("总额低于门槛");
 
@@ -236,6 +245,7 @@ public class TicketServiceImpl implements TicketService {
                 for (Ticket t : tickets) {
                     t.setState(1);
                     ticketMapper.updateTicketState(t.getId(),1);
+                    ticketMapper.updatePaymentMode(t.getId(),1);  //改变ticket的购买方式为会员卡支付（1）
                     TicketVO ticketVO = t.getVO();
                     ticketVOS.add(ticketVO);
                 }
@@ -266,6 +276,58 @@ public class TicketServiceImpl implements TicketService {
              e.printStackTrace();
              return ResponseVO.buildFailure("失败!");
          }
+    }
+
+    @Override
+    public ResponseVO getTicketRefund(List<Integer> ticketId){
+        try {
+            List<Ticket> tickets=new ArrayList<Ticket>();
+            for(int i:ticketId){
+                tickets.add(ticketMapper.selectTicketById(i));
+            }
+            int userId=tickets.get(0).getUserId();  //得到用户ID
+            int movieId=tickets.get(0).getScheduleId(); // 得到电影ID
+            Timestamp timestamp=tickets.get(0).getTime(); //得到电影购买的时间
+
+            for(Ticket t:tickets){
+                int paymentMode=t.getPaymentMode();// 得到用户的购票方式
+                int scheduleId=t.getScheduleId();
+                ScheduleItem schedule=scheduleService.getScheduleItemById(scheduleId);
+                double fare=schedule.getFare();//得到票价
+                double penalty=0.5;//这里是假数据，之后的过程中要从数据库中获得penalty的比例
+                switch(paymentMode){
+                    case 1:
+                    {
+                        VIPCard vipCard = vipService.selectCardByUserId(userId);
+                        double refund=(1-penalty)*fare;
+                        ticketMapper.VIPRefund(userId,refund); //退款
+                        ticketMapper.deleteTicket(t.getId());  //删除购买记录
+                        break;
+                    }
+                }
+            }
+
+
+            List<Activity> activities = activityService.selectActivityByTimeAndMovie(timestamp, movieId);
+            List<Coupon> couponsToCatch=new ArrayList<Coupon>();
+            for(Activity i:activities){
+                if(!couponService.existCouponUser(i.getCoupon().getId(), userId)){
+                    couponsToCatch.add(i.getCoupon());
+                }
+            }//构造根据活动需要拿回的优惠券列表
+
+            if(couponsToCatch.size()!=0){
+                for(Coupon coupon:couponsToCatch){
+                    couponService.deleteCoupon(coupon.getId(),userId);
+                }
+            }//删除已经给出的优惠券
+            return ResponseVO.buildSuccess();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("退票失败");
+        }
     }
 
 

@@ -26,6 +26,7 @@ public class TicketController {
     public ResponseVO lockSeat(@RequestBody TicketForm ticketForm){
         return ticketService.addTicket(ticketForm);
     }
+
     @PostMapping("/buy")
     public ResponseVO buyTicket(@RequestParam List<Integer> ticketId,@RequestParam int couponId){
         return ticketService.completeTicket(ticketId,couponId);
@@ -39,9 +40,15 @@ public class TicketController {
     public ResponseVO getOccupiedSeats(@RequestParam int scheduleId){
         return ticketService.getBySchedule(scheduleId);
     }
+
     @PostMapping("/cancel")
     public ResponseVO cancelTicket(@RequestParam List<Integer> ticketId){
         return ticketService.cancelTicket(ticketId);
+    }
+
+    @PostMapping("/refundTicket")
+    public ResponseVO getTicketRefund(@RequestParam List<Integer> ticketId){
+        return ticketService.getTicketRefund(ticketId);
     }
 
 
