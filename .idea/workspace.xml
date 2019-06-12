@@ -2,22 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b329842a-69be-437d-990f-c3ba349ed0c7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/github_pro/src/main/resources/templates/adminPromotionManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/github_pro/src/main/resources/templates/adminPromotionManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/bl/management/HallService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/bl/management/HallService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/management/hall/HallServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/management/hall/HallServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/management/HallController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/management/HallController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/data/management/HallMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/data/management/HallMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/cinema/vo/HallVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/cinema/vo/HallVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/dataImpl/management/HallMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataImpl/management/HallMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/adminCinemaManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/adminCinemaManage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adminCinemaManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/adminCinemaManage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/management/HallService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/bl/management/HallService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/hall/HallServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/blImpl/management/hall/HallServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/management/HallController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/controller/management/HallController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/example/cinema/data/management/HallMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/cinema/data/management/HallMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dataImpl/management/HallMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dataImpl/management/HallMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/js/adminCinemaManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/js/adminCinemaManage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/adminCinemaManage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/adminCinemaManage.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,24 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/github_pro/src/main/resources/static/js/adminPromotionManage.js">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/vo/HallVO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/templates/adminCinemaManage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="119" column="71" selection-start-line="119" selection-start-column="71" selection-end-line="119" selection-end-column="71" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="114">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -85,11 +58,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/controller/promotion/VIPCardController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="274">
               <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/dataImpl/management/HallMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -168,7 +150,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminPromotionManage.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/userHome.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/dataImpl/management/HallMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/cinema/data/management/HallMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/adminCinemaManage.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/cinema/controller/management/HallController.java" />
@@ -176,6 +157,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/cinema/blImpl/management/hall/HallServiceImpl.java" />
         <option value="$PROJECT_DIR$/github_pro/target/classes/static/js/adminScheduleManage.js" />
         <option value="$PROJECT_DIR$/src/main/resources/static/js/adminCinemaManage.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/dataImpl/management/HallMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/cinema/vo/HallVO.java" />
       </list>
     </option>
   </component>
@@ -275,7 +258,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="y" value="-5" />
     <option name="width" value="981" />
@@ -328,6 +311,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="cinema" type="462c0819:PsiDirectoryNode" />
               <item name="bl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
+              <item name="second" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cinema" type="462c0819:PsiDirectoryNode" />
+              <item name="vo" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cinema" type="b2602c69:ProjectViewProjectNode" />
@@ -422,17 +414,18 @@
       <updated>1560244380059</updated>
       <workItem from="1560244384864" duration="5767000" />
       <workItem from="1560322175402" duration="9535000" />
-      <workItem from="1560335210245" duration="4365000" />
+      <workItem from="1560335210245" duration="5050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19667000" />
+    <option name="totallyTimeSpent" value="20352000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="654" height="688" extended-state="0" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.5922819" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28536782" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -442,7 +435,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.053956833" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.08525755" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39964476" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -614,24 +607,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/dataImpl/management/HallMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/controller/sales/TicketController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
           <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/vo/HallVO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -758,6 +737,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="274">
           <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/dataImpl/management/HallMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/cinema/vo/HallVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
         </state>
       </provider>
     </entry>

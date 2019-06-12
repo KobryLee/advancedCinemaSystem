@@ -19,6 +19,10 @@ public class HallVO {
         this.column = hall.getColumn();
     }
 
+    public HallVO(){
+
+    };
+
     public Integer getId() {
         return id;
     }
