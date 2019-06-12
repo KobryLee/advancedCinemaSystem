@@ -48,4 +48,19 @@ public class HallServiceImpl implements HallService, HallServiceForBl {
         }
         return hallVOList;
     }
+
+    @Override
+    public ResponseVO addHall(HallVO hall){
+        try{
+            Hall temp = new Hall();
+            temp.setColumn(hall.getColumn());
+            temp.setRow(hall.getRow());
+            temp.setName(hall.getName()+"号厅");
+            System.out.println(hall.getColumn());
+            return ResponseVO.buildSuccess(hallMapper.addHall(temp));
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResponseVO.buildFailure("失败");
+        }
+    }
 }

@@ -10,5 +10,8 @@
 
     <resultMap id="Hall" type="com.example.cinema.po.Hall">
     </resultMap>
-
+    <insert id="addHall" parameterType="com.example.cinema.po.Hall" useGeneratedKeys="true" keyProperty="id">
+        insert into hall(name,column,row)
+        values(#{hall}, #{column}, #{row},  #{screenWriter}, #{starring}, #{type}, #{country}, #{language}, #{length}, #{startDate}, #{description}, 0)
+    </insert>
 </mapper>

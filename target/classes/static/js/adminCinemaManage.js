@@ -58,6 +58,23 @@ $(document).ready(function() {
         );
     }
 
+
+    $('#add-bn').click(function(){
+        var hal = {name:$('#cinema-name').val(), column:$('#cinema-width-2').val(),row:$('#cinema-height-2').val()};
+        console.log(hal);
+        postRequest(
+           '/hall/add',
+           hal,
+           function () {
+               alert("success");
+               $("#addcinema").modal('hide');
+           },
+           function(error){
+               console.log(error);
+           }
+        )
+    });
+
     $('#canview-modify-btn').click(function () {
        $("#canview-modify-btn").hide();
        $("#canview-set-input").val(canSeeDate);
