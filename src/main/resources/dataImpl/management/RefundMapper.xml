@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cinema.data.management.RefundMapper">
+    <insert id="insertRefundStrategy" parameterType="java.util.List"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into refund
+        (
+              name,
+              is_vip,
+              false_time,
+              start_time,
+              end_time,
+              penalty
+        )
+        values
+        <foreach collection="list" separator="," item="item" index="index">
+            (
+                #{item.name},
+                #{item.isVip},
+                #{item.falseTime},
+                #{item.startTime},
+                #{item.endTime},
+                #{item.penalty}
+            )
+        </foreach>
+    </insert>
+
+    <select id="selectAllRefundStrategy" resultMap="RefundStrategy">
+        select * from refund
+    </select>
+    <delete id="deleteRefundStrategyByName" >
+        delete from refund where name=#{name}
+    </delete>
+    <resultMap id="RefundStrategy" type="com.example.cinema.po.RefundStrategy">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="is_vip" property="isVip"></result>
+        <result column="false_time" property="falseTime"></result>
+        <result column="start_time" property="startTime"></result>
+        <result column="end_time" property="endTime"></result>
+        <result column="penalty" property="penalty"></result>
+    </resultMap>
+</mapper>
