@@ -36,11 +36,17 @@ public class Ticket {
      * 0：未完成 1：已完成 2:已失效
      */
     private int state;
+
     /**
      * 票的支付方式：
      * 0：银行卡 1：会员卡 -1:尚未支付
      */
     private int paymentMode;
+
+    /**
+     * 票所用的优惠券ID
+     */
+    private int couponId;
 
     private Timestamp time;
 
@@ -163,5 +169,13 @@ public class Ticket {
 
     public void setPaymentMode(int paymentMode){
         this.paymentMode=paymentMode;
+    }
+
+    public int getCouponId(){
+        return this.couponId;
+    }
+
+    public void setCouponId(int couponId) {
+        this.couponId = couponId;
     }
 }

@@ -1,6 +1,8 @@
 package com.example.cinema.data.sales;
 
+import com.example.cinema.po.RefundStrategy;
 import com.example.cinema.po.Ticket;
+import com.example.cinema.po.VIPCard;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -23,6 +25,8 @@ public interface TicketMapper {
 
     void updatePaymentMode(@Param("ticketId") int ticketId, @Param("paymentMode") int paymentMode);
 
+    void updateTicketCoupon(@Param("ticketId") int ticketId, @Param("couponId") int couponId);
+
     List<Ticket> selectTicketsBySchedule(int scheduleId);
 
     Ticket selectTicketByScheduleIdAndSeat(@Param("scheduleId") int scheduleId, @Param("column") int columnIndex, @Param("row") int rowIndex);
@@ -39,5 +43,10 @@ public interface TicketMapper {
 	void VIPPay(int userId, double toPay);
 
 	void VIPRefund(int userId, double refund);
+
+	List<RefundStrategy> getRefundStrategies(int isVip);
+
+	List<VIPCard> isVip(int userId);
+
 }
 

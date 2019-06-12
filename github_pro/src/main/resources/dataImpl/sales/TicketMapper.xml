@@ -49,6 +49,10 @@
         update ticket set paymentMode=#{paymentMode} where id=#{ticketId}
     </update>
 
+    <update id="updateTicketCoupon">
+        update ticket set couponId=#{couponId} where id=#{ticketId}
+    </update>
+
     <delete id="deleteTicket">
         delete from ticket where id=#{ticketId}
     </delete>
@@ -61,6 +65,8 @@
         <result column="row_index" property="rowIndex"></result>
         <result column="state" property="state"></result>
         <result column="time" property="time"></result>
+        <result column="paymentMode" property="paymentMode"></result>
+        <result column="couponId" property="couponId"></result>
     </resultMap>
 
     <update id="cleanExpiredTicket">
@@ -74,5 +80,30 @@
     <update id="VIPRefund">
         update vip_card set balance=(balance+#{refund}) where #{userId}=user_id
     </update>
+
+    <select id="getRefundStrategies" resultMap="RefundStrategy">
+        select * from refund where #{isVip}=is_vip
+    </select>
+
+    <resultMap id="RefundStrategy" type="com.example.cinema.po.RefundStrategy">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="is_vip" property="isVip"></result>
+        <result column="false_time" property="falseTime"></result>
+        <result column="start_time" property="startTime"></result>
+        <result column="end_time" property="endTime"></result>
+        <result column="penalty" property="penalty"></result>
+    </resultMap>
+
+    <select id="isVip" resultMap="VIPCard">
+        select * from vip_card where #{user_id}=userId
+    </select>
+    <resultMap id="VIPCard" type="com.example.cinema.po.VIPCard">
+        <result column="userId" property="user_id"></result>
+        <result column="id" property="id"></result>
+        <result column="balance" property="balance"></result>
+        <result column="join_time" property="joinDate"></result>
+    </resultMap>
+
 
 </mapper>
