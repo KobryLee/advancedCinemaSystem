@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>影院退票</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/adminRefund.css"/>
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/request.js"></script>
+    <script src="/js/adminRefundManage.js"></script>
+
+</head>
+<body>
+<div class="main-container">
+    <div class="nav-left-container">
+        <div class="nav-user-container" style="margin-bottom: 50px;">
+            <img class="avatar-lg" src="/images/defaultAvatar.jpg" />
+            <p class="title">Admin</p>
+        </div>
+        <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"><a href="/admin/movie/manage"><i class="icon-film"></i> 电影管理</a></li>
+            <li role="presentation"><a href="/admin/session/manage"><i class="icon-calendar"></i> 排片管理</a></li>
+            <li role="presentation"><a href="/admin/promotion/manage"><i class="icon-gift"></i> 活动管理</a></li>
+            <li role="presentation"><a href="/admin/movie/manage"><i class="icon-cogs"></i> 影院管理</a></li>
+            <li role="presentation"><a href="/admin/cinema/statistic"><i class="icon-bar-chart"></i> 影院统计</a></li>
+            <li role="presentation" class="active"><a href="#"><i class="icon-pencil"></i> 影院退票</a></li>
+        </ul>
+    </div>
+    <div class="content-container">
+        <div class="content-header">
+            <span class="title gray-text">退票管理</span>
+            <button type="button" class="btn btn-primary" data-backdrop="static"
+                    data-toggle="modal" data-target="#activityModal">
+                <i class="icon-plus-sign"></i> 发布退票策略 </button>
+        </div>
+        <div class="refunds-box" >
+            <div class="refund-container card" >
+                <div class="refund-string" >
+                    <span class="refund-name" >退票策略名称</span>
+                    <span class="refund-user-type">用户类型：
+                        <span class="refund-red-text">会员</span></span>
+                    <div class="refund-prohibit-time">
+                        距离电影开场前
+                        <span class="refund-red-text">15分钟内</span>
+                        不可退票
+                    </div>
+                </div>
+                <div class="refund-permit">
+                    <table class="table table-striped" style="text-align: center">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center">距离电影开场前（小时）</th>
+                                <th style="text-align: center">退票折算系数</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                    6:00
+                                <span>至</span>
+                                    5:30
+                            </td>
+                            <td>90%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    5:30
+                                <span>至</span>
+                                    3:00
+                            </td>
+                            <td>70%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    3:00
+                                <span>至</span>
+                                    1:00
+                            </td>
+                            <td>40%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    1:00
+                                <span>至</span>
+                                    0:15
+                            </td>
+                            <td>10%</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                    0:15
+                                <span>至</span>
+                                    0:00
+                            </td>
+                            <td>0</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="button-container">
+                    <button type="button" class="btn btn-primary refund-btn-update">修改</button>
+                    <button type="button" class="btn btn-danger refund-btn-delete">删除</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="refundModalLabel">发布退票策略</h4>
+            </div>
+
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="refund-name-input"><span class="error-text">*</span>策略名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="refund-name-input" placeholder="请输入退票策略名称">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="is-vip" ><span class="error-text">*</span>用户类型</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="is-vip">
+                                <option value="1">会员</option>
+                                <option value="0">非会员</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="false-time">不可退票时间</label>
+                        <div class="col-sm-10">
+                            <input  class="form-control" type="time" id="false-time" step="300">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="refund-time-start-1"><span class="error-text">*</span>电影开场</label>
+                        <div class="col-sm-4">
+                            <input class="form-control" type="time" id="refund-time-start-1" step="300">
+                        </div>
+                        <label class="col-sm-1 control-label" for="refund-time-end-1">至</label>
+                        <div class="col-sm-5">
+                            <input class="form-control" type="time" id="refund-time-end-1" step="300">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label" for="refund-penalty-1"><span class="error-text">*</span>折算系数</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="refund-penalty-1" placeholder="请输入退票手续费的折算系数">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div  class="col-sm-1">
+                            <button type="button" class="btn btn-primary" id="input-plus"><i class="icon-plus-sign"></i></button>
+                        </div>
+                        <div  class="col-sm-1">
+                            <button type="button" class="btn btn-danger" id="input-minus"><i class="icon-minus-sign"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="refund-form-btn">确认</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<script>
+
+</script>
+</html>

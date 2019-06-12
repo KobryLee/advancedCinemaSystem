@@ -12,6 +12,6 @@
     </resultMap>
     <insert id="addHall" parameterType="com.example.cinema.po.Hall" useGeneratedKeys="true" keyProperty="id">
         insert into hall(name,column,row)
-        values(#{hall}, #{column}, #{row})
+        values(#{name}, #{column}, #{row})
     </insert>
 </mapper>
