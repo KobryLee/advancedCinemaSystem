@@ -44,6 +44,9 @@ public class ViewController {
     public String getAdminCinemaStatistic() {
         return "adminCinemaStatistic";
     }
+    
+    @RequestMapping(value = "/admin/refund/manage")
+    public String getAdminRefundManage(){return "adminRefundManage";}
 
     @RequestMapping(value = "/admin/movieDetail")
     public String getAdminMovieDetail(@RequestParam int id) { return "adminMovieDetail"; }
