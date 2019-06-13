@@ -1,0 +1,29 @@
+.vipInfo-container {
+    display: flex;
+    width: 100%;
+    min-height: 160px;
+    margin: 20px 0;
+}
+
+.vipInfo-card {
+    padding: 20px 20px 20px 40px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    justify-content: space-around;
+}
+
+.vipInfo-line {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.vipInfo-line .primary-text {
+	font-size: 18px;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+}
