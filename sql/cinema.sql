@@ -242,14 +242,16 @@ DROP TABLE IF EXISTS `ticket`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ticket` (
-  `user_id` int(11) DEFAULT NULL,
-  `schedule_id` int(11) DEFAULT NULL,
-  `column_index` int(11) DEFAULT NULL,
-  `row_index` int(11) DEFAULT NULL,
-  `state` tinyint(4) DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+                        `user_id` int(11) DEFAULT NULL,
+                        `schedule_id` int(11) DEFAULT NULL,
+                        `column_index` int(11) DEFAULT NULL,
+                        `row_index` int(11) DEFAULT NULL,
+                        `state` tinyint(4) DEFAULT NULL,
+                        `id` int(11) NOT NULL AUTO_INCREMENT,
+                        `time` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+                        `paymentMode` tinyint(4) DEFAULT NULL,
+                        `couponId` int(11) DEFAULT NULL,
+                        PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -259,7 +261,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (12,50,5,3,2,1,'2019-04-23 13:50:52');
+INSERT INTO `ticket` VALUES (12,50,5,3,2,1,'2019-04-23 13:50:52',-1,-1);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
