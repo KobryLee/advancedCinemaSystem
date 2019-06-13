@@ -4,17 +4,17 @@
 
     <insert id="insertTicket" parameterType="com.example.cinema.po.Ticket"
             useGeneratedKeys="true" keyProperty="id">
-        insert into ticket(user_id, schedule_id, column_index, row_index,state)
-        values(#{userId}, #{scheduleId}, #{columnIndex}, #{rowIndex}, #{state})
+        insert into ticket(user_id, schedule_id, column_index, row_index, state, paymentMode)
+        values(#{userId}, #{scheduleId}, #{columnIndex}, #{rowIndex}, #{state},#{paymentMode})
     </insert>
     
     <insert id="insertTickets" parameterType="java.util.List"
             useGeneratedKeys="true" keyProperty="id">
-        insert into ticket(user_id, schedule_id, column_index, row_index, state)
+        insert into ticket(user_id, schedule_id, column_index, row_index, state, paymentMode)
         values
         <foreach collection="list" item="item" index="index"
                  separator=",">
-            (#{item.userId}, #{item.scheduleId}, #{item.columnIndex}, #{item.rowIndex}, #{item.state})
+            (#{item.userId}, #{item.scheduleId}, #{item.columnIndex}, #{item.rowIndex}, #{item.state}, #{item.paymentMode})
         </foreach>
 
     </insert>
@@ -45,18 +45,17 @@
         update ticket set state = #{state} where id=#{ticketId}
     </update>
 
+    <update id="updatePaymentMode">
+        update ticket set paymentMode=#{paymentMode} where id=#{ticketId}
+    </update>
+
+    <update id="updateTicketCoupon">
+        update ticket set couponId=#{couponId} where id=#{ticketId}
+    </update>
+
     <delete id="deleteTicket">
         delete from ticket where id=#{ticketId}
     </delete>
-
-
-    <update id="cleanExpiredTicket">
-        update ticket SET  state =2 WHERE minute(timediff(now(),time))>15 and state=0
-    </update>
-
-    <update id="VIPPay">
-        update vip_card set balance=(balance-#{payment}) where #{userId}=user_id
-    </update>
 
     <resultMap id="Ticket" type="com.example.cinema.po.Ticket">
         <result column="schedule_id" property="scheduleId"></result>
@@ -66,6 +65,44 @@
         <result column="row_index" property="rowIndex"></result>
         <result column="state" property="state"></result>
         <result column="time" property="time"></result>
+        <result column="paymentMode" property="paymentMode"></result>
+        <result column="couponId" property="couponId"></result>
+    </resultMap>
+
+    <update id="cleanExpiredTicket">
+        update ticket SET  state =2 WHERE minute(timediff(now(),time))>15 and state=0;
+    </update>
+    
+    <update id="VIPPay">
+        update vip_card set balance=(balance-#{toPay}) where #{userId}=user_id
+    </update>
+
+    <update id="VIPRefund">
+        update vip_card set balance=(balance+#{refund}) where #{userId}=user_id
+    </update>
+
+    <select id="getRefundStrategies" resultMap="RefundStrategy">
+        select * from refund where #{isVip}=is_vip
+    </select>
+
+    <resultMap id="RefundStrategy" type="com.example.cinema.po.RefundStrategy">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="is_vip" property="isVip"></result>
+        <result column="false_time" property="falseTime"></result>
+        <result column="start_time" property="startTime"></result>
+        <result column="end_time" property="endTime"></result>
+        <result column="penalty" property="penalty"></result>
+    </resultMap>
+
+    <select id="isVip" resultMap="VIPCard">
+        select * from vip_card where #{user_id}=userId
+    </select>
+    <resultMap id="VIPCard" type="com.example.cinema.po.VIPCard">
+        <result column="userId" property="user_id"></result>
+        <result column="id" property="id"></result>
+        <result column="balance" property="balance"></result>
+        <result column="join_time" property="joinDate"></result>
     </resultMap>
 
 
