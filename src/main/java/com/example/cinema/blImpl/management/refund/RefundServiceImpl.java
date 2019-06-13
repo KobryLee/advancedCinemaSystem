@@ -27,9 +27,15 @@ public class RefundServiceImpl implements RefundService {
 
     @Override
     public ResponseVO getAllRefundStrategy() {
-        List<RefundStrategy> refundStrategyList = refundMapper.selectAllRefundStrategy();
-        List<RefundForm> refundFormList = refundPOList2refundVOList(refundStrategyList);
-        return ResponseVO.buildSuccess(refundFormList);
+        try{
+
+            List<RefundStrategy> refundStrategyList = refundMapper.selectAllRefundStrategy();
+            List<RefundForm> refundFormList = refundPOList2refundVOList(refundStrategyList);
+            return ResponseVO.buildSuccess(refundFormList);
+        }catch(IndexOutOfBoundsException e){
+            //数据为空只要返回空值就好了
+            return  ResponseVO.buildSuccess();
+        }
     }
 
     @Override
