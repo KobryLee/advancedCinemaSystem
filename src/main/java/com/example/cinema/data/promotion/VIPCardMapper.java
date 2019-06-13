@@ -18,6 +18,8 @@ public interface VIPCardMapper {
 
     VIPCard selectCardByUserId(int userId);
 
+    List<VIPInfo> selectVIPInfo();
 
+	void insertOneVIPInfo(VIPInfoForm vipInfoForm);
 
 }
