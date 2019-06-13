@@ -37,6 +37,17 @@ public class Ticket {
      */
     private int state;
 
+    /**
+     * 票的支付方式：
+     * 0：银行卡 1：会员卡 -1:尚未支付
+     */
+    private int paymentMode;
+
+    /**
+     * 票所用的优惠券ID
+     */
+    private int couponId;
+
     private Timestamp time;
 
     public Timestamp getTime() {
@@ -150,5 +161,21 @@ public class Ticket {
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public int getPaymentMode(){
+        return paymentMode;
+    }
+
+    public void setPaymentMode(int paymentMode){
+        this.paymentMode=paymentMode;
+    }
+
+    public int getCouponId(){
+        return this.couponId;
+    }
+
+    public void setCouponId(int couponId) {
+        this.couponId = couponId;
     }
 }
