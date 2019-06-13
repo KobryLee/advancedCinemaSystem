@@ -373,6 +373,33 @@ INSERT INTO `refund` VALUES (1,'退票策略1',1,'00:15','05:00','06:00',0.10),(
 UNLOCK TABLES;
 
 --
+-- Table structure for table `vip_service`
+--
+
+DROP TABLE IF EXISTS `vip_service`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `vip_service` (
+                        `id` int(11)  NOT NULL AUTO_INCREMENT,
+                        `name` varchar(255) NOT NULL,
+                        `price` DOUBLE (11) NOT NULL,
+                        `discount_req` INT (5) NOT NULL,
+                        `discount_res` INT (5) NOT NULL,
+                        PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `refund`
+--
+
+LOCK TABLES `vip_service` WRITE;
+/*!40000 ALTER TABLE `vip_service` DISABLE KEYS */;
+INSERT INTO `vip_service` VALUES (1,'普通会员卡',25,200,30),(2,'贵宾会员卡',70,300,30),(3,'至尊会员卡',100,450,80);
+/*!40000 ALTER TABLE `vip_service` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping events for database 'cinema'
 --
 
